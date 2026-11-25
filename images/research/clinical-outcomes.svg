@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="342" viewBox="0 0 720 342" role="img">
+  <title>Population follow-up over time</title>
+  <desc>Three people are followed over time. Circles mark successive study visits.</desc>
+  <defs>
+    <g id="participant" stroke="currentColor" stroke-width="1.8" fill="currentColor" fill-opacity=".14">
+      <ellipse cx="0" cy="-16" rx="12" ry="14"/>
+      <path d="M-27 18 C-27 3 -17 -4 -10 -3 Q0 3 10 -3 C20 -4 27 3 27 18Z"/>
+    </g>
+    <g id="timeline" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M149 0H648 M640 -5l8 5 -8 5" fill="none" stroke-width="1.7"/>
+      <g fill="#fff0f6" stroke-width="2.3">
+        <circle cx="207" cy="0" r="6"/><circle cx="345" cy="0" r="6"/>
+        <circle cx="483" cy="0" r="6"/><circle cx="621" cy="0" r="6"/>
+      </g>
+    </g>
+  </defs>
+  <defs><radialGradient id="plate-field" cx="62%" cy="40%" r="87%"><stop offset="0%" stop-color="#fff1f6"/><stop offset="62%" stop-color="#fbe5ef"/><stop offset="100%" stop-color="#f2d5e3"/></radialGradient></defs><rect width="720" height="342" fill="url(#plate-field)"/>
+  <path d="M207 54v234 M345 54v234 M483 54v234 M621 54v234" fill="none" stroke="#d7b7c8" stroke-dasharray="3 6"/>
+  <g transform="translate(0 82)" color="#aa4f75"><use href="#participant" x="91"/><use href="#timeline"/></g>
+  <g transform="translate(0 171)" color="#785287"><use href="#participant" x="91"/><use href="#timeline"/></g>
+  <g transform="translate(0 260)" color="#836377"><use href="#participant" x="91"/><use href="#timeline"/></g>
+</svg>

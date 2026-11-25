@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CWC Lab · TMU</title>
-<meta name="description" content="CWC Lab, Graduate Institute of Metabolism and Obesity Sciences, Taipei Medical University. Liver disease, MASH, liver cancer and AI digital pathology.">
+<title>CWC Lab | Liver Genetics, Metabolism and AI Pathology</title>
+<meta name="description" content="CWC Lab studies the progression of fatty liver disease through human genetics, metabolomics and AI pathology.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -97,8 +97,13 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--mask);outline-offse
 .mem:nth-child(3n) .av{background:light-dark(#d4eef6,#1f4f63)}
 .mem b{display:block;font-size:16px}.mem span{display:block;font-size:14px;color:var(--soft)}
 
+.pub-key{color:var(--soft);font-size:.94rem}
+.pubs sup{color:var(--hema);font-size:.82em;line-height:0;font-weight:700}
+.pub-role{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .pubs{margin:0;padding:0;list-style:none}
 .pubs li{padding:16px 0;border-top:1px solid var(--line);max-width:80ch}
+.pubs a{text-decoration-thickness:1px;text-decoration-color:var(--eosin2)}
+.pubs a:hover{text-decoration-color:currentColor}
 .pubs em{color:var(--hema);font-style:normal;font-weight:500}
 .note{font-size:13px;color:var(--soft)}
 
@@ -113,10 +118,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--mask);outline-offse
 .prog span{font-size:15px}
 .group{margin:0 0 32px}.group img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center 75%;border-radius:14px}
 figcaption{font-size:13px;color:var(--soft);margin-top:8px}
-.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:14px}
-.gal figure{margin:0;display:flex;flex-direction:column}
-.gal img{flex:1;min-height:0;width:100%;object-fit:cover;border-radius:12px;display:block}
-.gal .w{grid-column:span 2}.gal .t{grid-row:span 2}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:26px 18px}
+.gal figure{margin:0}
+.gal img{display:block;width:100%;height:auto;border-radius:12px}
 footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 
 @media(max-width:1000px){
@@ -131,7 +135,7 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
  .feat{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:700px){
- .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px}
+ .gal{grid-template-columns:minmax(0,1fr);gap:24px}
 
  .hero,.pi,.join{grid-template-columns:minmax(0,1fr)}
  .topic{grid-template-columns:minmax(0,1fr)}
@@ -140,6 +144,7 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 }
 @media(prefers-reduced-motion:no-preference){.mk{stroke-dasharray:4 4;animation:march 6s linear infinite}@keyframes march{to{stroke-dashoffset:-48}}}
 </style>
+<link rel="stylesheet" href="homepage.css?v=7">
 </head>
 <body>
 <div class="wrap">
@@ -151,7 +156,6 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
  <nav class="nav" aria-label="Sections">
   <a href="#home"><span lang="en">Home</span><span lang="zh-Hant">首頁</span></a>
   <a href="#research"><span lang="en">Research</span><span lang="zh-Hant">研究方向</span></a>
-  <a href="#ai"><span lang="en">AI Pathology</span><span lang="zh-Hant">AI 病理</span></a>
   <a href="#pi"><span lang="en">Principal Investigator</span><span lang="zh-Hant">主持人</span></a>
   <a href="#team"><span lang="en">Team</span><span lang="zh-Hant">成員</span></a>
   <a href="#life"><span lang="en">Lab Life</span><span lang="zh-Hant">實驗室生活</span></a>
@@ -166,54 +170,219 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 </aside>
 
 <main>
-<section class="band" id="home">
- <div class="in hero">
-  <div>
-   <div class="fig"><svg id="lobule" viewBox="0 0 600 560" role="img" aria-label="Illustration of a liver lobule stained with H&amp;E, with fat droplets outlined by an AI segmentation mask"></svg></div>
-   <div class="legend">
-    <span><i style="background:var(--eosin2)"></i><span lang="en">Hepatocytes (H&amp;E)</span><span lang="zh-Hant">肝細胞 (H&amp;E 染色)</span></span>
-    <span><i style="background:#fff;border:1px solid var(--soft)"></i><span lang="en">Steatosis</span><span lang="zh-Hant">脂肪變性</span></span>
-    <span><i style="border:2px dashed var(--mask)"></i><span lang="en">AI mask</span><span lang="zh-Hant">AI 分割</span></span>
+<section class="band welcome" id="home" aria-labelledby="welcome-title">
+ <div class="in">
+  <figure class="research-film" id="research-film">
+   <h1 class="film-sr-only" id="welcome-title"><span lang="en">CWC Lab</span><span lang="zh-Hant">CWC 實驗室</span></h1>
+   <div class="film-stage">
+    <video id="intro-film" controls muted playsinline preload="metadata" width="1920" height="1080" poster="cwc-lab-intro-poster.webp?v=7" aria-labelledby="film-name">
+     <source src="cwc-lab-intro.mp4?v=7" type="video/mp4">
+     <track kind="captions" src="cwc-lab-intro.en.vtt" srclang="en" label="English" default>
+     <track kind="subtitles" src="cwc-lab-intro.zh-Hant.vtt" srclang="zh-Hant" label="繁體中文">
+     <a href="cwc-lab-intro.mp4?v=7"><span lang="en">Open the research film</span><span lang="zh-Hant">開啟研究短片</span></a>
+    </video>
+    <button id="film-play" class="film-play" type="button" aria-controls="intro-film" hidden>
+     <span aria-hidden="true">▶</span><span class="play-label"></span>
+    </button>
    </div>
-  </div>
-  <div>
-   <h1><span lang="en">Decoding fatty liver disease from tissue to genome</span><span lang="zh-Hant">從組織到基因體，解析脂肪肝疾病</span></h1>
-   <p class="lead" style="margin-top:18px"><span lang="en">CWC Lab focuses on metabolic dysfunction-associated steatotic liver disease (MASLD) and steatohepatitis (MASH). We combine AI pathology, genetics, transcriptomics, multi-omics, 3D genome and epigenetics, built on high-quality human histological data and organism models of MASH.</span><span lang="zh-Hant">CWC 實驗室專注於代謝功能障礙相關脂肪性肝病（MASLD）與脂肪性肝炎（MASH）。我們結合 AI 病理、遺傳學、轉錄體學、多體學、3D 基因體與表觀遺傳學，並以高品質的人體組織病理資料及 MASH 動物模式為基礎進行研究。</span></p>
-   <ul class="aff">
-    <li><span lang="en">Graduate Institute of Metabolism and Obesity Sciences</span><span lang="zh-Hant">代謝與肥胖科學研究所</span></li>
-    <li><span lang="en">College of Nutrition, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學 營養學院</span></li>
-    <li><span lang="en">TMU Research Center for Digestive Medicine</span><span lang="zh-Hant">北醫消化醫學研究中心</span></li>
-   </ul>
-   <div class="cta">
-    <a class="btn pri" href="#research"><span lang="en">See our research</span><span lang="zh-Hant">研究方向</span></a>
-    <a class="btn" href="#research-film"><span lang="en">Watch the 56-second film</span><span lang="zh-Hant">觀看 56 秒研究短片</span></a>
-    <a class="btn" href="#join"><span lang="en">Join the lab</span><span lang="zh-Hant">加入我們</span></a>
+   <figcaption id="film-caption">
+    <span id="film-name" class="film-sr-only"><span lang="en">CWC Lab research film · 56 seconds · scientific illustration</span><span lang="zh-Hant">CWC 實驗室研究短片 · 56 秒 · 科學示意動畫</span></span>
+    <div class="film-toolbar">
+     <button class="sound-toggle" id="film-sound" type="button" aria-controls="intro-film">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+       <path d="M3 9h4l5-4v14l-5-4H3z"/><path class="speaker-waves" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>
+      </svg>
+      <span class="sound-label"><span lang="en">Play with sound</span><span lang="zh-Hant">從頭有聲播放</span></span>
+     </button>
+     <details class="film-disclosure">
+      <summary><span lang="en">Film chapters</span><span lang="zh-Hant">影片章節</span></summary>
+   <div class="film-chapters" role="group" aria-label="Film chapters" data-label-en="Film chapters" data-label-zh="影片章節">
+    <button type="button" data-start="0" data-film-key="opening" data-topic="tab-outcomes" aria-controls="intro-film" aria-current="step"><span lang="en">The research question</span><span lang="zh-Hant">研究問題</span></button>
+    <button type="button" data-start="11.183" data-film-key="genetics" data-topic="tab-regulatory" aria-controls="intro-film"><span lang="en">Human genetics</span><span lang="zh-Hant">人類遺傳</span></button>
+    <button type="button" data-start="22.267" data-film-key="blood" data-topic="tab-metabolomics" aria-controls="intro-film"><span lang="en">Metabolic changes</span><span lang="zh-Hant">代謝變化</span></button>
+    <button type="button" data-start="33.392" data-film-key="tissue" data-topic="tab-ai" aria-controls="intro-film"><span lang="en">Liver tissue</span><span lang="zh-Hant">肝臟組織</span></button>
+    <button type="button" data-start="35.899" data-film-key="pathology" data-topic="tab-ai" aria-controls="intro-film"><span lang="en">AI analysis</span><span lang="zh-Hant">AI 分析</span></button>
+    <button type="button" data-start="43.25" data-film-key="synthesis" data-synthesis aria-controls="intro-film"><span lang="en">Putting it together</span><span lang="zh-Hant">整合與驗證</span></button>
    </div>
-  </div>
+     </details>
+    </div>
+    <span id="film-notice" role="status" hidden></span>
+   </figcaption>
+  </figure>
  </div>
- <figure class="research-film" id="research-film">
-  <figcaption id="research-film-title"><span lang="en">How we combine human genetics, metabolism and AI pathology</span><span lang="zh-Hant">我們如何結合人類遺傳、代謝研究與 AI 病理</span></figcaption>
-  <video controls playsinline preload="metadata" width="1280" height="720" poster="cwc-lab-intro-poster.webp" aria-labelledby="research-film-title">
-   <source src="cwc-lab-intro.mp4" type="video/mp4">
-   <track kind="captions" src="cwc-lab-intro.en.vtt" srclang="en" label="English">
-   <track kind="subtitles" src="cwc-lab-intro.zh-Hant.vtt" srclang="zh-Hant" label="繁體中文">
-   <a href="cwc-lab-intro.mp4"><span lang="en">Open the research film</span><span lang="zh-Hant">開啟研究短片</span></a>
-  </video>
- </figure>
 </section>
 
-<section class="band" id="research">
- <div class="in">
-  <h2><span lang="en">Research</span><span lang="zh-Hant">研究方向</span></h2>
-  <div class="topics" id="topics"></div>
- </div>
-</section>
-
-<section class="band spot" id="ai">
- <div class="in">
-  <h2><span lang="en">AI pathology for MASLD and MASH</span><span lang="zh-Hant">MASLD 與 MASH 的 AI 病理</span></h2>
-  <p><span lang="en">Scoring liver biopsies by eye is slow and varies between pathologists. We develop AI tools for whole-slide images that assess the key histological features of MASH objectively and reproducibly.</span><span lang="zh-Hant">以肉眼判讀肝臟切片耗時，且不同病理醫師之間存在差異。我們開發應用於全玻片影像的 AI 工具，客觀且可重複地評估 MASH 的主要組織病理特徵。</span></p>
-  <div class="feat" id="feat"></div>
+<section class="band spot program-section" id="research" aria-labelledby="research-title">
+ <span id="ai" class="anchor-alias" aria-hidden="true"></span>
+ <div class="in program-container">
+  <div class="section-title">
+   <h2 id="research-title"><span lang="en">Our research</span><span lang="zh-Hant">我們的研究方向</span></h2>
+   <button class="rotate-toggle" id="rotate-topics" type="button" data-state="playing">
+    <span class="rotate-icon" aria-hidden="true"></span><span class="rotate-label"><span lang="en">Pause rotation</span><span lang="zh-Hant">暫停輪播</span></span>
+   </button>
+  </div>
+  <div class="program-tabs" role="tablist" aria-label="Research programs" data-label-en="Research programs" data-label-zh="研究方向">
+   <button class="program-tab" type="button" role="tab" id="tab-regulatory" aria-controls="panel-regulatory" aria-selected="true" tabindex="0">
+    <span lang="en">Regulatory genomics</span><span lang="zh-Hant">調控基因體學</span><span class="tab-elapsed" aria-hidden="true"></span>
+   </button>
+   <button class="program-tab" type="button" role="tab" id="tab-transcriptomics" aria-controls="panel-transcriptomics" aria-selected="false" tabindex="-1">
+    <span lang="en">MASH transcriptomics</span><span lang="zh-Hant">MASH 轉錄體學</span><span class="tab-elapsed" aria-hidden="true"></span>
+   </button>
+   <button class="program-tab" type="button" role="tab" id="tab-mitochondria" aria-controls="panel-mitochondria" aria-selected="false" tabindex="-1">
+    <span class="wide-label"><span lang="en">Mitochondrial mouse models</span><span lang="zh-Hant">粒線體小鼠模型</span></span><span class="compact-label"><span lang="en">Mitochondrial models</span><span lang="zh-Hant">粒線體模型</span></span><span class="tab-elapsed" aria-hidden="true"></span>
+   </button>
+   <button class="program-tab" type="button" role="tab" id="tab-ai" aria-controls="panel-ai" aria-selected="false" tabindex="-1">
+    <span class="wide-label"><span lang="en">AI pathology and multimodal validation</span><span lang="zh-Hant">AI 病理與多模態驗證</span></span><span class="compact-label"><span lang="en">AI pathology</span><span lang="zh-Hant">AI 病理</span></span><span class="tab-elapsed" aria-hidden="true"></span>
+   </button>
+   <button class="program-tab" type="button" role="tab" id="tab-outcomes" aria-controls="panel-outcomes" aria-selected="false" tabindex="-1">
+    <span lang="en">Clinical outcomes</span><span lang="zh-Hant">臨床結局</span><span class="tab-elapsed" aria-hidden="true"></span>
+   </button>
+   <button class="program-tab" type="button" role="tab" id="tab-metabolomics" aria-controls="panel-metabolomics" aria-selected="false" tabindex="-1">
+    <span lang="en">Metabolomics</span><span lang="zh-Hant">代謝體學</span><span class="tab-elapsed" aria-hidden="true"></span>
+   </button>
+  </div>
+  <div class="program-panels" aria-live="off">
+   <article class="program-panel" id="panel-regulatory" role="tabpanel" aria-labelledby="tab-regulatory" tabindex="0">
+    <div class="program-copy">
+     <h3><span lang="en">Which genetic differences influence the course of liver disease?</span><span lang="zh-Hant">哪些遺傳差異會影響肝病的進程？</span></h3>
+     <p><span lang="en">EPFinder is a collaboration between CWC Lab and Dr. Yi-Hsiang Hsu at Harvard Medical School. We compare genetic data across populations to ask which genes liver disease risk variants may regulate.</span><span lang="zh-Hant">EPFinder 是 CWC Lab 與哈佛醫學院許益祥教授的合作計畫。我們利用不同族群的遺傳資料，探討與肝病風險相關的變異可能調控哪些基因。</span></p>
+    </div>
+    <figure class="program-plate">
+     <div class="illustration-field"><div class="illustration-camera">
+      <img src="images/research/regulatory-genomics.svg?v=3" width="720" height="342" alt="An illustrative association peak and a chromatin contact linking a regulatory variant to a candidate gene." data-alt-en="An illustrative association peak and a chromatin contact linking a regulatory variant to a candidate gene." data-alt-zh="示意關聯峰與染色質接觸弧線，連接調控區變異及可能受影響的基因。">
+      <svg class="topic-motion" viewBox="0 0 720 342" aria-hidden="true" focusable="false">
+       <circle class="motion-ring" cx="225" cy="50" r="16"/>
+       <path class="motion-line" d="M225 62 V208 C284 151 442 151 500 208" pathLength="100"/>
+       <rect class="motion-focus" x="487" y="241" width="160" height="40" rx="9"/>
+      </svg></div>
+     </div>
+     <figcaption>
+      <span class="plate-key"><span lang="en">Regulatory variant</span><span lang="zh-Hant">調控區變異</span></span>
+      <span class="plate-key"><span lang="en">Candidate target gene</span><span lang="zh-Hant">候選目標基因</span></span>
+      <span class="plate-type"><span lang="en">Schematic</span><span lang="zh-Hant">示意圖</span></span>
+     </figcaption>
+    </figure>
+   </article>
+   <article class="program-panel" id="panel-transcriptomics" role="tabpanel" aria-labelledby="tab-transcriptomics" tabindex="0">
+    <div class="program-copy">
+     <h3><span lang="en">How does gene activity change as scarring advances?</span><span lang="zh-Hant">肝纖維化加重時，哪些基因的活性會改變？</span></h3>
+     <p><span lang="en">We compare liver RNA profiles with the fibrosis stage seen on biopsy. We then test whether the same patterns of gene expression appear in independent groups of people with MASH.</span><span lang="zh-Hant">我們把肝臟 RNA 表現和切片上的纖維化分期配對，再到獨立的 MASH 病人群體中，檢驗是否也能觀察到相同的基因表現特徵。</span></p>
+    </div>
+    <figure class="program-plate">
+     <div class="illustration-field"><div class="illustration-camera">
+      <img src="images/research/mash-transcriptomics.svg?v=3" width="720" height="342" alt="Two liver biopsy cores with different amounts of fibrosis, paired with a schematic matrix of RNA expression." data-alt-en="Two liver biopsy cores with different amounts of fibrosis, paired with a schematic matrix of RNA expression." data-alt-zh="兩條纖維化程度不同的肝切片，右側以色塊示意不同檢體的基因表現。">
+      <svg class="topic-motion" viewBox="0 0 720 342" aria-hidden="true" focusable="false">
+       <path class="motion-sample" d="M65 103 C63 84 75 78 98 79 L280 84 Q302 86 302 102 Q302 121 276 123 L99 127 Q67 128 65 103Z"/>
+       <path class="motion-sample" style="--delay:.38s" d="M65 212 C63 193 75 187 98 188 L280 193 Q302 195 302 211 Q302 230 276 232 L99 236 Q67 237 65 212Z"/>
+       <path class="motion-line" d="M314 103 H327 V158 H368 M314 212 H327 V158" pathLength="100"/>
+       <g fill="var(--program-paper)"><rect class="matrix-cover" x="402" y="53" width="268" height="73"/><rect class="matrix-cover" style="--delay:.28s" x="402" y="126" width="268" height="72"/><rect class="matrix-cover" style="--delay:.56s" x="402" y="198" width="268" height="76"/></g>
+      </svg></div>
+     </div>
+     <figcaption>
+      <span class="plate-key"><span lang="en">Fibrosis stage</span><span lang="zh-Hant">纖維化分期</span></span>
+      <span class="plate-key"><span lang="en">Liver RNA expression</span><span lang="zh-Hant">肝臟 RNA 表現</span></span>
+      <span class="plate-type"><span lang="en">Schematic</span><span lang="zh-Hant">示意圖</span></span>
+     </figcaption>
+    </figure>
+   </article>
+   <article class="program-panel" id="panel-mitochondria" role="tabpanel" aria-labelledby="tab-mitochondria" tabindex="0">
+    <div class="program-copy">
+     <h3><span lang="en">What happens when liver cells lose mitochondrial DNAJA3?</span><span lang="zh-Hant">肝細胞失去粒線體蛋白 DNAJA3，會發生什麼事？</span></h3>
+     <p><span lang="en">A finding in human genetics led us to DNAJA3. In mice, we study how its loss changes liver metabolism and the immune cells around tumors, and why these changes may differ between males and females.</span><span lang="zh-Hant">人群遺傳研究帶領我們找到 DNAJA3。我們利用小鼠模型，觀察肝細胞缺少這個蛋白時，肝臟代謝與腫瘤周圍的免疫細胞如何改變，以及這些改變是否有性別差異。</span></p>
+    </div>
+    <figure class="program-plate">
+     <div class="illustration-field"><div class="illustration-camera">
+      <img src="images/research/mitochondrial-models.svg?v=3" width="720" height="342" alt="A mouse with its liver highlighted and a magnified mitochondrion with a folded inner membrane." data-alt-en="A mouse with its liver highlighted and a magnified mitochondrion with a folded inner membrane." data-alt-zh="左側標出小鼠的肝臟，右側放大呈現粒線體及其摺疊的內膜。">
+      <svg class="topic-motion" viewBox="0 0 720 342" aria-hidden="true" focusable="false">
+       <circle class="motion-ring" cx="146" cy="175" r="18"/>
+       <path class="motion-line" d="M149 174 L185 144 H311 L365 119" pathLength="100"/>
+       <g transform="rotate(-16 516 174)">
+        <path class="motion-folds" d="M382 170 C384 133 419 109 459 110 Q478 111 486 118 Q487 123 480 129 L460 150 Q450 161 454 166 Q459 172 468 161 L492 135 Q503 124 514 128 Q523 130 517 141 L498 172 Q489 187 496 191 Q503 194 511 179 L533 143 Q541 129 556 128 Q569 123 564 138 L548 169 Q543 180 550 183 Q556 185 561 176 L579 138 Q584 122 597 122" pathLength="100"/>
+       </g>
+      </svg></div>
+     </div>
+     <figcaption>
+      <span class="plate-key"><span lang="en">Mouse liver</span><span lang="zh-Hant">小鼠肝臟</span></span>
+      <span class="plate-key"><span lang="en">Mitochondrion</span><span lang="zh-Hant">粒線體</span></span>
+      <span class="plate-type"><span lang="en">Schematic</span><span lang="zh-Hant">示意圖</span></span>
+     </figcaption>
+    </figure>
+   </article>
+   <article class="program-panel" id="panel-ai" role="tabpanel" aria-labelledby="tab-ai" tabindex="0">
+    <div class="program-copy">
+     <h3><span lang="en">What can a liver biopsy tell us beyond its grade?</span><span lang="zh-Hant">除了病理分級，一張肝切片還能告訴我們什麼？</span></h3>
+     <p><span lang="en">We develop AI methods to measure fat accumulation, ballooned hepatocytes and inflammation on whole-slide images. We plan to test the models in an independent cohort and compare image features with RNA profiles from the same patients.</span><span lang="zh-Hant">我們開發 AI 方法，在肝臟全玻片影像中量化脂肪堆積、肝細胞氣球樣變與發炎。接下來將在獨立病人群體驗證模型，並用同一位病人的肝臟 RNA 資料，檢驗切片特徵是否提供分級以外的分子資訊。</span></p>
+    </div>
+    <figure class="program-plate">
+     <div class="illustration-field"><div class="illustration-camera">
+      <img src="liver-lobule.svg?v=3" width="720" height="342" alt="Liver lobule and a magnified group of hepatocytes. A dashed outline traces a fat vacuole within a cell." data-alt-en="Liver lobule and a magnified group of hepatocytes. A dashed outline traces a fat vacuole within a cell." data-alt-zh="左側為肝小葉，右側放大肝細胞。虛線示意 AI 勾勒出的細胞內脂肪空泡。">
+      <svg class="topic-motion" viewBox="0 0 720 342" aria-hidden="true" focusable="false">
+       <defs>
+        <mask id="vacuole-trace-reveal" maskUnits="userSpaceOnUse" x="580" y="113" width="76" height="78">
+         <ellipse class="trace-reveal" cx="617" cy="151" rx="30" ry="29" pathLength="100"
+                  fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-dasharray="100 100" stroke-dashoffset="100"/>
+        </mask>
+       </defs>
+       <circle class="motion-ring" cx="230" cy="199" r="21" fill="none" stroke="var(--program-trace)" stroke-width="2.6"/>
+       <path class="motion-line" d="M249 192 L332 118 H390" pathLength="100" fill="none" stroke="var(--program-trace)" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"/>
+       <ellipse cx="617" cy="151" rx="30" ry="29" fill="none" stroke="#fffdf8" stroke-width="3.5"/>
+       <ellipse cx="617" cy="151" rx="30" ry="29" fill="none" stroke="#d9a4b6" stroke-width="1.3"/>
+       <ellipse cx="617" cy="151" rx="30" ry="29" fill="none" stroke="var(--program-trace)" stroke-width="2.3" stroke-dasharray="5 4" mask="url(#vacuole-trace-reveal)"/>
+      </svg></div>
+     </div>
+     <figcaption>
+      <span class="plate-key"><span lang="en">Liver tissue</span><span lang="zh-Hant">肝臟組織</span></span>
+      <span class="plate-key"><span lang="en">AI segmentation outline</span><span lang="zh-Hant">AI 圈選邊界</span></span>
+      <span class="plate-type"><span lang="en">Schematic</span><span lang="zh-Hant">示意圖</span></span>
+     </figcaption>
+    </figure>
+   </article>
+   <article class="program-panel" id="panel-outcomes" role="tabpanel" aria-labelledby="tab-outcomes" tabindex="0">
+    <div class="program-copy">
+     <h3><span lang="en">Which patients face a higher long-term risk?</span><span lang="zh-Hant">哪些病人日後面臨較高的健康風險？</span></h3>
+     <p><span lang="en">We use population studies to explore how liver disease relates to long-term health.</span><span lang="zh-Hant">我們透過族群研究，探討肝臟疾病與長期健康的關聯。</span></p>
+    </div>
+    <figure class="program-plate">
+     <div class="illustration-field"><div class="illustration-camera">
+      <img src="images/research/clinical-outcomes.svg?v=3" width="720" height="342" alt="People in a population study are followed at successive visits over time." data-alt-en="People in a population study are followed at successive visits over time." data-alt-zh="三位研究參與者的追蹤時間軸，圓點表示歷次訪視。">
+      <svg class="topic-motion" viewBox="0 0 720 342" aria-hidden="true" focusable="false">
+       <g class="follow-tracks"><path d="M149 82 H628" pathLength="100"/><path d="M149 171 H628" pathLength="100"/><path d="M149 260 H628" pathLength="100"/></g>
+       <g class="visit-column"><circle cx="207" cy="82" r="8"/><circle cx="207" cy="171" r="8"/><circle cx="207" cy="260" r="8"/></g>
+       <g class="visit-column" style="--delay:.6s"><circle cx="345" cy="82" r="8"/><circle cx="345" cy="171" r="8"/><circle cx="345" cy="260" r="8"/></g>
+       <g class="visit-column" style="--delay:1.2s"><circle cx="483" cy="82" r="8"/><circle cx="483" cy="171" r="8"/><circle cx="483" cy="260" r="8"/></g>
+       <g class="visit-column" style="--delay:1.8s"><circle cx="621" cy="82" r="8"/><circle cx="621" cy="171" r="8"/><circle cx="621" cy="260" r="8"/></g>
+      </svg></div>
+     </div>
+     <figcaption>
+      <span class="plate-key"><span lang="en">Study participants</span><span lang="zh-Hant">研究參與者</span></span>
+      <span class="plate-key"><span lang="en">Follow-up visits</span><span lang="zh-Hant">追蹤訪視</span></span>
+      <span class="plate-type"><span lang="en">Schematic</span><span lang="zh-Hant">示意圖</span></span>
+     </figcaption>
+    </figure>
+   </article>
+   <article class="program-panel" id="panel-metabolomics" role="tabpanel" aria-labelledby="tab-metabolomics" tabindex="0">
+    <div class="program-copy">
+     <h3><span lang="en">Which changes in the blood accompany fatty liver disease?</span><span lang="zh-Hant">脂肪肝的變化會在血液中留下哪些線索？</span></h3>
+     <p><span lang="en">We track how blood metabolites change over time as liver health changes. We also use nuclear magnetic resonance (NMR) to study how diet and body fat relate to metabolic profiles and to signs of fatty liver on ultrasound.</span><span lang="zh-Hant">我們追蹤血中代謝物隨時間的變化，研究哪些變化與肝臟健康有關。我們也用核磁共振（NMR）分析血液，探討飲食、體脂與代謝特徵，以及超音波所見脂肪肝之間的關聯。</span></p>
+    </div>
+    <figure class="program-plate">
+     <div class="illustration-field"><div class="illustration-camera">
+      <img src="images/research/metabolomics.svg?v=3" width="720" height="342" alt="Blood samples collected over time and two illustrative NMR spectra. The peaks are drawn examples." data-alt-en="Blood samples collected over time and two illustrative NMR spectra. The peaks are drawn examples." data-alt-zh="不同時間採集的血液樣本及兩條核磁共振光譜。峰形為概念示意。">
+      <svg class="topic-motion" viewBox="0 0 720 342" aria-hidden="true" focusable="false">
+       <path class="motion-sample" d="M83 275 Q111 282 138 274 M151 276 Q178 285 200 275"/>
+       <path class="motion-line" d="M232 169 H277" pathLength="100"/>
+       <rect class="spectrum-cover" x="299" y="55" width="376" height="205" fill="var(--program-paper)"/>
+       <path class="spectrum-scan" d="M300 65 V255" stroke="var(--program-trace)" stroke-width="3"/>
+      </svg></div>
+     </div>
+     <figcaption>
+      <span class="plate-key"><span lang="en">Serial blood samples</span><span lang="zh-Hant">縱向血液樣本</span></span>
+      <span class="plate-key"><span lang="en">NMR spectra</span><span lang="zh-Hant">核磁共振光譜</span></span>
+      <span class="plate-type"><span lang="en">Schematic</span><span lang="zh-Hant">示意圖</span></span>
+     </figcaption>
+    </figure>
+   </article>
+  </div>
  </div>
 </section>
 
@@ -224,8 +393,11 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
    <img class="ph" src="images/pi.jpg" alt="Dr. Ching-Wen Chang" width="311" height="389">
    <div>
     <h3 style="font-size:26px">Ching-Wen Chang, PhD <span style="color:var(--soft);font-weight:500">張瀞文</span></h3>
-    <p class="role"><span lang="en">Assistant Professor, Graduate Institute of Metabolism and Obesity Sciences, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學 代謝與肥胖科學研究所 助理教授</span></p>
-    <p><span lang="en">Dr. Chang trained at National Yang-Ming University and, with a Dragon Gate fellowship, at Dr. Xin Wei Wang's laboratory in the Center for Cancer Research, U.S. National Cancer Institute (NIH), building expertise in liver cancer genetics, computational biology and oncology data science.</span><span lang="zh-Hant">張老師於國立陽明大學完成研究訓練，並獲科技部龍門計畫支持，赴美國國家癌症研究所（NIH）Xin Wei Wang 博士實驗室進修，專長為肝癌遺傳學、計算生物學與腫瘤資料科學。</span></p>
+    <p class="role"><span lang="en">Assistant Professor, Graduate Institute of Metabolism and Obesity Sciences, College of Nutrition, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學營養學院代謝與肥胖科學研究所 助理教授</span></p>
+    <p><span lang="en">Ching-Wen Chang, PhD, leads CWC Lab. Her team studies why some people with fatty liver disease develop cirrhosis or liver cancer while others with similar metabolic risk remain stable. The lab uses human genetics, blood metabolite profiles and AI analysis of liver biopsies to identify changes linked to disease progression, then tests their role in experimental models.</span><span lang="zh-Hant">張瀞文博士主持 CWC 實驗室。她的研究從一個臨床問題出發。代謝風險相近的脂肪肝患者，為什麼有些人病情穩定，有些人卻進展至肝硬化或肝癌？她帶領團隊結合人類遺傳、血中代謝物與肝切片的 AI 分析，找出與疾病進展相關的變化，再以實驗模型檢驗這些變化在致病過程中的作用。</span></p>
+    <p><span lang="en">As principal investigator on a grant from Taiwan’s National Science and Technology Council, Dr. Chang uses three-dimensional maps of the genome to identify the genes that liver disease risk variants may regulate. As co-first author of a 2025 study in <i>Hepatology</i>, she helped identify a genetic variant associated with liver cancer in people with steatohepatitis. The study also showed that mice lacking the mitochondrial protein DNAJA3 in their liver cells developed steatohepatitis and liver cancer.</span><span lang="zh-Hant">她目前主持國科會計畫，利用基因體三維結構圖譜，追查與肝病進展相關的遺傳變異可能調控哪些基因。在 2025 年以共同第一作者身分發表於《Hepatology》的研究中，她與合作者在脂肪性肝炎患者中辨認出一個與肝癌風險相關的遺傳變異，並發現小鼠的肝細胞缺少粒線體蛋白 DNAJA3 時，會出現脂肪性肝炎及肝癌。</span></p>
+    <p><span lang="en">She earned her PhD at National Yang-Ming University and, as a Dragon Gate fellow, conducted postdoctoral research with Dr. Xin Wei Wang at the U.S. National Cancer Institute’s Center for Cancer Research.</span><span lang="zh-Hant">張博士於國立陽明大學取得博士學位，後獲Dragon Gate 計畫獎助，赴美國國家癌症研究所癌症研究中心，在 Xin Wei Wang 博士的實驗室從事博士後研究。</span></p>
+    <details class="pi-affiliations"><summary><span lang="en">Research affiliations</span><span lang="zh-Hant">研究單位</span></summary><ul><li><span lang="en">TMU Research Center for Digestive Medicine, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學消化醫學研究中心</span></li><li><span lang="en">Taipei Cancer Center, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學臺北癌症中心</span></li><li><span lang="en">Nutrition Research Center, Taipei Medical University Hospital</span><span lang="zh-Hant">臺北醫學大學附設醫院營養研究中心</span></li></ul></details>
     <ul>
      <li><span lang="en">Best Poster Award, APASL Annual Meeting 2023</span><span lang="zh-Hant">2023 APASL 年會 最佳海報獎</span></li>
      <li><span lang="en">NIH Women Scientist Advisors (WSA) Scholar Award, 2022</span><span lang="zh-Hant">2022 美國 NIH Women Scientist Advisors 學者獎</span></li>
@@ -249,11 +421,9 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
  <div class="in">
   <h2><span lang="en">Lab life</span><span lang="zh-Hant">實驗室生活</span></h2>
   <div class="gal">
-   <figure class="w t"><img src="images/foodture-2026.jpg" alt="Lab members with their poster at FoodTure Start 2026" loading="lazy"><figcaption><span lang="en">Presenting our poster at FoodTure Start 2026</span><span lang="zh-Hant">於 FoodTure Start 2026 發表海報</span></figcaption></figure>
-   <figure class="t"><img src="images/institute-celebration.jpg" alt="Lab members celebrating at the Graduate Institute of Metabolism and Obesity Sciences" loading="lazy"><figcaption><span lang="en">Celebrating at the institute</span><span lang="zh-Hant">在研究所一起慶祝</span></figcaption></figure>
-   <figure class="t"><img src="images/graduation.jpg" alt="Dr. Chang with graduating students in gowns" loading="lazy"><figcaption><span lang="en">Graduation day</span><span lang="zh-Hant">畢業典禮</span></figcaption></figure>
-   <figure class="w t"><img src="images/lab-outing.jpg" alt="Lab members on an outing in Taipei" loading="lazy"><figcaption><span lang="en">Lab outing in Taipei</span><span lang="zh-Hant">實驗室聚會</span></figcaption></figure>
-   <figure class="w t"><img src="images/birthday.jpg" alt="Lab members and international interns at a birthday celebration" loading="lazy" style="object-position:center 60%"><figcaption><span lang="en">A birthday with our international interns</span><span lang="zh-Hant">與國際實習生一起慶生</span></figcaption></figure>
+   <figure><img src="images/foodture-2026.jpg" width="1477" height="1108" alt="Lab members with their poster at FoodTure Start 2026" loading="lazy"><figcaption><span lang="en">Presenting our poster at FoodTure Start 2026</span><span lang="zh-Hant">於 FoodTure Start 2026 發表海報</span></figcaption></figure>
+   <figure><img src="images/academic-gathering.jpg" width="1476" height="1108" alt="A group gathered in a lecture room after an academic presentation" loading="lazy"><figcaption><span lang="en">An academic gathering</span><span lang="zh-Hant">學術活動合影</span></figcaption></figure>
+   <figure><img src="images/institute-celebration-8225.jpg" width="1108" height="1477" alt="CWC Lab members gathered around a cake at the institute entrance" data-alt-en="CWC Lab members gathered around a cake at the institute entrance" data-alt-zh="CWC 實驗室成員在研究所門口手持蛋糕合影。" loading="lazy"><figcaption><span lang="en">Celebrating at the institute</span><span lang="zh-Hant">在研究所一起慶祝</span></figcaption></figure>
   </div>
  </div>
 </section>
@@ -261,7 +431,8 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 <section class="band" id="pubs">
  <div class="in">
   <h2><span lang="en">Selected publications</span><span lang="zh-Hant">代表著作</span></h2>
-  <ul class="pubs" id="publist"></ul>
+  <p class="pub-key" id="pub-key"><span lang="en">Ching-Wen Chang is shown in bold. An asterisk (*) marks each corresponding author.</span><span lang="zh-Hant">粗體為張瀞文，星號（*）標示每位通訊作者。</span></p>
+  <ul class="pubs" id="publist" aria-describedby="pub-key"></ul>
   <p class="note"><span lang="en">Full list on</span><span lang="zh-Hant">完整著作請見</span> <a href="https://orcid.org/0000-0002-1777-6441">ORCID</a>.</p>
  </div>
 </section>
@@ -295,69 +466,46 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
   </div>
  </div>
 </section>
+<section class="band collaborations" id="collaborations" aria-labelledby="collab-title">
+ <div class="in">
+  <h2 id="collab-title"><span lang="en">International collaborators</span><span lang="zh-Hant">國際合作夥伴</span></h2>
+  <ul class="partner-list">
+   <li><strong>Xin Wei Wang</strong><span lang="en">Center for Cancer Research, National Cancer Institute, NIH</span><span lang="zh-Hant">美國國家衛生研究院國家癌症研究所癌症研究中心</span></li>
+   <li><strong><span lang="en">Yi-Hsiang Hsu</span><span lang="zh-Hant">許益祥</span></strong><span lang="en">Harvard Medical School and Beth Israel Deaconess Medical Center</span><span lang="zh-Hant">哈佛醫學院與 Beth Israel Deaconess Medical Center</span></li>
+   <li><strong>William Alazawi</strong><span lang="en">Blizard Institute, Queen Mary University of London</span><span lang="zh-Hant">倫敦瑪麗王后大學 Blizard Institute</span></li>
+  </ul>
+ </div>
+</section>
 <footer>© 2026 CWC Lab, Taipei Medical University<br><small style="font-size:12px;opacity:.8"><span lang="en">Website created by Le Diep Thanh Trang</span><span lang="zh-Hant">網站製作：Le Diep Thanh Trang</span></small></footer>
 </main>
 </div>
 
 <script>
 {
-const topics=[
- {en:"AI pathology",zh:"AI 病理",
-  den:"We develop deep-learning tools that read whole-slide images of liver biopsies and assess MASLD and MASH features objectively and reproducibly.",
-  dzh:"開發深度學習工具判讀肝臟切片全玻片影像，客觀且可重複地評估 MASLD 與 MASH 的病理特徵。",
-  t:["Whole-slide imaging","Deep learning"]},
- {en:"Human MASLD and MASH histology",zh:"MASLD 與 MASH 人體組織病理資料",
-  den:"We collect high-quality, well-characterized histological data from MASLD and MASH patients, the foundation for our AI and molecular studies.",
-  dzh:"收集高品質且臨床資訊完整的 MASLD 與 MASH 病人組織病理資料，作為 AI 與分子研究的基礎。",
-  t:["Liver biopsy","Clinical cohort"]},
- {en:"Genetics",zh:"遺傳學",
-  den:"We identify genetic variants that shape the risk of MASLD and MASH and their progression to fibrosis and liver cancer.",
-  dzh:"找出影響 MASLD 與 MASH 風險，以及其進展為纖維化與肝癌的基因變異。",
-  t:["GWAS","Genetic risk"]},
- {en:"Transcriptomics and multi-omics",zh:"轉錄體學與多體學",
-  den:"We integrate transcriptomic, metabolic and immune profiles of the liver, down to single cells and tissue space, to see how disease unfolds.",
-  dzh:"整合肝臟的轉錄體、代謝與免疫特徵，從單細胞到組織空間層次，解析疾病的發展。",
-  t:["Single-cell RNA-seq","Spatial omics","Metabolomics"]},
- {en:"3D genome and epigenetics",zh:"3D 基因體與表觀遺傳學",
-  den:"We study how chromatin architecture and epigenetic regulation link genetic variants to gene activity in the diseased liver.",
-  dzh:"探討染色質三維結構與表觀遺傳調控如何將基因變異連結到病變肝臟中的基因表現。",
-  t:["Chromatin architecture","Epigenomics"]},
- {en:"Organism models of MASH",zh:"MASH 動物模式",
-  den:"We build organism models of MASH to test disease mechanisms and candidate treatments.",
-  dzh:"建立 MASH 動物模式，驗證致病機轉並測試潛在治療。",
-  t:["Animal models","Mechanism","Therapy"]}
-];
-document.getElementById('topics').innerHTML=topics.map(x=>`<div class="topic"><h3><span lang="en">${x.en}</span><span lang="zh-Hant">${x.zh}</span></h3><div><p><span lang="en">${x.den}</span><span lang="zh-Hant">${x.dzh}</span></p><div class="tags">${x.t.map(s=>`<span>${s}</span>`).join('')}</div></div></div>`).join('');
-
-
 const pubs=[
- ["Guerrero JJG, Encarnacion PC, Wang WY, Liao SF, <b>Chang CW</b>.","Burden and health system challenges in MASLD across East and Southeast Asia: a narrative review.","Health Science Reports","2026;9(4):e72304"],
- ["Guerrero JJG, Encarnacion PC, Wang CH, et al., <b>Chang CW</b>, Li WC.","Fueling or fighting cancer? The thermogenic paradox of brown adipose tissue.","Current Obesity Reports","2026;15(1):23"],
- ["<b>Chang CW</b>, Chen YS, Huang CH, et al., Wang XW.","A genetic basis of mitochondrial DNAJA3 in nonalcoholic steatohepatitis-related hepatocellular carcinoma.","Hepatology","2025;81(1):60–76"],
- ["Guerrero JJG, Encarnacion PC, del Rosario MAS, et al., <b>Chang CW</b>.","Genetic variants underlying precancerous conditions of hepatocellular carcinoma.","International Journal of Cancer","2025;158(3):488–502"],
- ["Lu CH, <b>Chang CW</b>, Chen SC, et al., Wu CH.","Machine learning-based survival analysis for patients receiving lenvatinib for unresectable hepatocellular carcinoma.","Journal of Hepatocellular Carcinoma","2025;12:2625–2637"],
- ["Behrens S, Do WL, Wang L, et al., <b>Chang CW</b>, et al., Wang XW.","Pan-microbial serological repertoire as a biomarker of immunotherapy response in hepatocellular carcinoma.","Journal for ImmunoTherapy of Cancer","2025;13(10):e011742"],
- ["Hung MH, <b>Chang CW</b>, Wang KC, et al., Wang XW.","Purine anabolism creates therapeutic vulnerability in hepatocellular carcinoma through m⁶A-mediated epitranscriptomic regulation.","Hepatology","2023;78(5):1462–1477"],
- ["Feng D, Xiang X, Guan Y, et al., <b>Chang C</b>, et al., Gao B.","Monocyte-derived macrophages orchestrate multiple cell-type interactions to repair necrotic liver lesions in disease models.","Journal of Clinical Investigation","2023;133(15):e166954"],
- ["<b>Chang CW</b>, Wei Z, Durell SR, Ma L, Forgues M, Wang XW.","A compendium of co-regulated mitoribosomal proteins in pan-cancer uncovers collateral defective events in tumor malignancy.","iScience","2022;25(10):105244"],
- ["Liu N, <b>Chang CW</b>, Steer CJ, Wang XW, Song G.","MicroRNA-15a/16-1 prevents hepatocellular carcinoma by disrupting the communication between Kupffer cells and regulatory T cells.","Gastroenterology","2022;162(2):575–589"],
- ["Ma L, Wang L, Khatib SA, <b>Chang CW</b>, et al., Wang XW.","Single-cell atlas of tumor cell evolution in response to therapy in hepatocellular carcinoma and intrahepatic cholangiocarcinoma.","Journal of Hepatology","2021;75(6):1397–1408"],
- ["Hung MH, Lee JS, Ma C, et al., <b>Chang CW</b>, et al., Wang XW.","Tumor methionine metabolism drives T-cell exhaustion in hepatocellular carcinoma.","Nature Communications","2021;12(1):1455"],
- ["Chen KY, Huang YH, Teo WH, <b>Chang CW</b>, et al., Lo JF.","Loss of Tid1/DNAJA3 co-chaperone promotes progression and recurrence of hepatocellular carcinoma after surgical resection.","Cancers","2021;13(1):138"]
+ ["Guerrero JJG, del Rosario MAS, Encarnacion PC, et al., <b>Chang CW</b>*, Li WC*.", "Adipose tissue browning in MASLD and its molecular mechanisms and metabolic crosstalk.", "Current Obesity Reports", "2026;15(1):68", "https://pubmed.ncbi.nlm.nih.gov/42538483/"],
+ ["Guerrero JJG, Encarnacion PC, Wang WY, Liao SF, <b>Chang CW</b>*.", "Burden and health system challenges in MASLD across East and Southeast Asia: a narrative review.", "Health Science Reports", "2026;9(4):e72304", "https://pubmed.ncbi.nlm.nih.gov/42005636/"],
+ ["Guerrero JJG, Encarnacion PC, Wang CH, et al., <b>Chang CW</b>*, Li WC*.", "Fueling or fighting cancer? The thermogenic paradox of brown adipose tissue.", "Current Obesity Reports", "2026;15(1):23", "https://pubmed.ncbi.nlm.nih.gov/41848823/"],
+ ["<b>Chang CW</b>, Chen YS, Huang CH, et al., Lo JF*, Wang XW*.", "A genetic basis of mitochondrial DNAJA3 in nonalcoholic steatohepatitis-related hepatocellular carcinoma.", "Hepatology", "2025;81(1):60–76", "https://pubmed.ncbi.nlm.nih.gov/37870291/"],
+ ["Guerrero JJG, Encarnacion PC, del Rosario MAS, et al., Li WC*, <b>Chang CW</b>*.", "Genetic variants underlying precancerous conditions of hepatocellular carcinoma.", "International Journal of Cancer", "2026;158(3):488–502", "https://pubmed.ncbi.nlm.nih.gov/40833357/"],
+ ["Lu CH, <b>Chang CW</b>, Chen SC, et al., Wu CH*.", "Machine learning-based survival analysis for patients receiving lenvatinib for unresectable hepatocellular carcinoma.", "Journal of Hepatocellular Carcinoma", "2025;12:2625–2637", "https://pubmed.ncbi.nlm.nih.gov/41323515/"],
+ ["Behrens S, Do WL, Wang L, et al., <b>Chang CW</b>, et al., Wang XW*.", "Pan-microbial serological repertoire as a biomarker of immunotherapy response in hepatocellular carcinoma.", "Journal for ImmunoTherapy of Cancer", "2025;13(10):e011742", "https://pubmed.ncbi.nlm.nih.gov/41120127/"],
+ ["Hung MH, <b>Chang CW</b>, Wang KC, et al., Wang XW*.", "Purine anabolism creates therapeutic vulnerability in hepatocellular carcinoma through m⁶A-mediated epitranscriptomic regulation.", "Hepatology", "2023;78(5):1462–1477", "https://pubmed.ncbi.nlm.nih.gov/37094826/"],
+ ["Feng D, Xiang X, Guan Y, et al., <b>Chang C</b>, et al., Gao B*.", "Monocyte-derived macrophages orchestrate multiple cell-type interactions to repair necrotic liver lesions in disease models.", "Journal of Clinical Investigation", "2023;133(15):e166954", "https://pubmed.ncbi.nlm.nih.gov/37338984/"],
+ ["<b>Chang CW</b>, Wei Z, Durell SR, Ma L, Forgues M, Wang XW*.", "A compendium of co-regulated mitoribosomal proteins in pan-cancer uncovers collateral defective events in tumor malignancy.", "iScience", "2022;25(10):105244", "https://pubmed.ncbi.nlm.nih.gov/36274950/"],
+ ["Liu N, <b>Chang CW</b>, Steer CJ, Wang XW, Song G*.", "MicroRNA-15a/16-1 prevents hepatocellular carcinoma by disrupting the communication between Kupffer cells and regulatory T cells.", "Gastroenterology", "2022;162(2):575–589", "https://pubmed.ncbi.nlm.nih.gov/34678217/"],
+ ["Ma L, Wang L, Khatib SA, <b>Chang CW</b>, et al., Greten TF*, Wang XW*.", "Single-cell atlas of tumor cell evolution in response to therapy in hepatocellular carcinoma and intrahepatic cholangiocarcinoma.", "Journal of Hepatology", "2021;75(6):1397–1408", "https://pubmed.ncbi.nlm.nih.gov/34216724/"],
+ ["Hung MH, Lee JS, Ma C, et al., <b>Chang CW</b>, et al., Wang XW*.", "Tumor methionine metabolism drives T-cell exhaustion in hepatocellular carcinoma.", "Nature Communications", "2021;12(1):1455", "https://pubmed.ncbi.nlm.nih.gov/33674593/"],
+ ["Chen KY, Huang YH*, Teo WH, <b>Chang CW</b>, et al., Lo JF*.", "Loss of Tid1/DNAJA3 co-chaperone promotes progression and recurrence of hepatocellular carcinoma after surgical resection: a novel model to stratify risk of recurrence.", "Cancers", "2021;13(1):138", "https://pubmed.ncbi.nlm.nih.gov/33406664/"]
 ];
-document.getElementById('publist').innerHTML=pubs.map(x=>`<li>${x[0]} ${x[1]} <em>${x[2]}</em> ${x[3]}.</li>`).join('');
+const correspondingMark = '<sup aria-hidden="true">*</sup><span class="pub-role" lang="en"> (corresponding author)</span><span class="pub-role" lang="zh-Hant">（通訊作者）</span>';
+document.getElementById('publist').innerHTML = pubs.map(publication => {
+  const [authors, title, journal, citation, url] = publication;
+  return `<li>${authors.replaceAll('*', correspondingMark)} <a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a> <em>${journal}</em> ${citation}.</li>`;
+}).join('');
 
-const ic={
- s:'<circle cx="22" cy="22" r="20" fill="#f3c6d3"/><circle cx="16" cy="18" r="7" fill="#fff"/><circle cx="29" cy="27" r="5" fill="#fff"/><circle cx="16" cy="18" r="9" fill="none" stroke="#3fd2f5" stroke-width="1.5" stroke-dasharray="3 3"/>',
- b:'<circle cx="22" cy="22" r="20" fill="#f3c6d3"/><circle cx="22" cy="22" r="12" fill="#fbe7ee" stroke="#e795ad"/><circle cx="22" cy="22" r="3" fill="#2c2763"/>',
- i:'<circle cx="22" cy="22" r="20" fill="#f3c6d3"/>'+[[14,15],[19,13],[17,19],[27,26],[24,30],[30,22]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="2.6" fill="#2c2763"/>`).join(''),
- f:'<circle cx="22" cy="22" r="20" fill="#f3c6d3"/><path d="M6 26 C14 20 18 30 26 22 S34 14 40 18" fill="none" stroke="#2c2763" stroke-width="3"/><path d="M10 34 C18 28 24 34 34 28" fill="none" stroke="#2c2763" stroke-width="2"/>'
-};
-const feats=[["s","Steatosis","脂肪變性","Fat droplets","脂肪滴"],["b","Ballooning","氣球樣變性","Swollen hepatocytes","腫脹肝細胞"],["i","Lobular inflammation","小葉發炎","Immune-cell foci","免疫細胞聚集"],["f","Fibrosis","纖維化","Collagen deposition","膠原沉積"]];
-document.getElementById('feat').innerHTML=feats.map(f=>`<div><svg viewBox="0 0 44 44" aria-hidden="true">${ic[f[0]]}</svg><b><span lang="en">${f[1]}</span><span lang="zh-Hant">${f[2]}</span></b><small><span lang="en">${f[3]}</span><span lang="zh-Hant">${f[4]}</span></small></div>`).join('');
-
-const ROLE={g:["Graduate Student","研究生"],u:["Undergraduate Student","大學部學生"],n:["Intern · NSPESP","實習生・NSPESP"],t:["Intern · TEEP","實習生・TEEP"],i:["Intern · IIPP","實習生・IIPP"]};
-const people=[["Jie-min Qiu","邱婕閔","g"],["Yun-chen Qiu","邱筠茞","g"],["Wei-ting Liu","劉韋廷","g"],["Rou-jun Chen","陳柔均","g"],["Jia-ying Zhang","張家瑛","g"],["Jen-hung Wang","王人弘","g"],["Min-hsuan Chiang","江旻璇","g"],["Le Diep Thanh Trang","","g"],["Shu-han Xu","許舒涵","u"],["Bo-yan Chen","陳博彥","u"],["Annisa Tazkiya Muenchenia Moelyadi","","n"],["Bodapati Reshma","","t"],["Robert Watts","","i"]];
+const ROLE={p:["Postdoctoral Researcher","博士後研究員"],d:["PhD Student","博士生"],g:["Graduate Student","研究生"],u:["Undergraduate Student","大學部學生"],n:["Intern · NSPESP","實習生・NSPESP"],t:["Intern · TEEP","實習生・TEEP"],i:["Intern · IIPP","實習生・IIPP"]};
+const people=[["Jen-hung Wang","王人弘","p"],["Jie-min Qiu","邱婕閔","g"],["Yun-chen Qiu","邱筠茞","d"],["Wei-ting Liu","劉韋廷","g"],["Rou-jun Chen","陳柔均","g"],["Jia-ying Zhang","張家瑛","g"],["Min-hsuan Chiang","江旻璇","g"],["Le Diep Thanh Trang","","g"],["Shu-han Xu","許舒涵","u"],["Bo-yan Chen","陳博彥","u"],["Annisa Tazkiya Muenchenia Moelyadi","","n"],["Bodapati Reshma","","t"],["Robert Watts","","i"]];
 const ini=n=>{const w=n.split(' ').filter(Boolean);return (w[0][0]+(w.length>1?w[w.length-1][0]:'')).toUpperCase()};
 document.getElementById('members').innerHTML=people.map(p=>`<div class="mem"><div class="av" aria-hidden="true">${p[1]?p[1].slice(-2):ini(p[0])}</div><b>${p[0]}</b>${p[1]?`<span>${p[1]}</span>`:''}<span lang="en">${ROLE[p[2]][0]}</span><span lang="zh-Hant">${ROLE[p[2]][1]}</span></div>`).join('');
 
@@ -370,7 +518,7 @@ document.getElementById('newslist').innerHTML=news.map(n=>`<div><time>${n[0]}</t
 
 /* language toggle */
 const root=document.documentElement,btns=document.querySelectorAll('.lang button');
-const setLang=l=>{root.dataset.lang=l;root.lang=l==='zh'?'zh-Hant':'en';btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));try{localStorage.setItem('cwc-lang',l)}catch(e){}};
+const setLang=l=>{root.dataset.lang=l;root.lang=l==='zh'?'zh-Hant':'en';btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));try{localStorage.setItem('cwc-lang',l)}catch(e){};document.dispatchEvent(new Event('cwc-language'))};
 btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
 try{const s=localStorage.getItem('cwc-lang');if(s)setLang(s)}catch(e){}
 
@@ -379,31 +527,14 @@ const links=[...document.querySelectorAll('.nav a')];
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-40% 0px -55% 0px'});
 document.querySelectorAll('main section').forEach(s=>io.observe(s));
 
-/* lobule illustration */
-let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
-const cx=300,cy=280,R=255,svg=document.getElementById('lobule');
-const hexR=a=>{const d=((a*180/Math.PI)%60+60)%60;return R*Math.cos(Math.PI/6)/Math.cos((d-30)*Math.PI/180)};
-let g='<defs><clipPath id="hx"><polygon points="'+[0,1,2,3,4,5].map(k=>{const a=k*Math.PI/3;return (cx+R*Math.cos(a)).toFixed(1)+','+(cy+R*Math.sin(a)).toFixed(1)}).join(' ')+'"/></clipPath></defs>';
-g+='<polygon points="'+[0,1,2,3,4,5].map(k=>{const a=k*Math.PI/3;return (cx+R*Math.cos(a)).toFixed(1)+','+(cy+R*Math.sin(a)).toFixed(1)}).join(' ')+'" style="fill:var(--panel)" stroke="var(--eosin2)" stroke-width="2"/>';
-let cells='',fat='',masks='';
-const N=30;
-for(let k=0;k<N;k++){
- const a=k*2*Math.PI/N+(rnd()-.5)*.05,lim=hexR(a)-14;
- for(let r=60;r<lim;r+=21){
-  if(r<120&&k%2)continue;
-  const aa=a+(rnd()-.5)*.06,x=cx+r*Math.cos(aa),y=cy+r*Math.sin(aa);
-  if(rnd()<.11&&r>90){const fr=8+rnd()*8;fat+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${fr.toFixed(1)}" fill="var(--bg)" stroke="var(--eosin2)" stroke-width="1"/>`;
-   if(rnd()<.75)masks+=`<circle class="mk" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(fr+4).toFixed(1)}" fill="none" stroke="var(--mask)" stroke-width="2"/>`;continue}
-  const cr=8.5+rnd()*1.5;
-  cells+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${cr.toFixed(1)}" fill="var(--eosin)" stroke="var(--eosin2)" stroke-width=".8"/><circle cx="${(x+(rnd()-.5)*3).toFixed(1)}" cy="${(y+(rnd()-.5)*3).toFixed(1)}" r="${(2.6+rnd()).toFixed(1)}" fill="var(--hema)"/>`;
- }
-}
-g+=`<g clip-path="url(#hx)">${cells}${fat}${masks}</g>`;
-g+=`<circle cx="${cx}" cy="${cy}" r="34" fill="var(--bg)" stroke="var(--eosin2)" stroke-width="3"/>`;
-for(let k=0;k<6;k++){const a=k*Math.PI/3,x=cx+R*Math.cos(a),y=cy+R*Math.sin(a);
- g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="22" fill="var(--eosin)" stroke="var(--eosin2)" stroke-width="2"/><circle cx="${(x-6).toFixed(1)}" cy="${(y-4).toFixed(1)}" r="8" fill="var(--bg)" stroke="var(--hema)" stroke-width="1.5"/><circle cx="${(x+8).toFixed(1)}" cy="${(y+2).toFixed(1)}" r="4" fill="none" stroke="#c0395f" stroke-width="2"/><circle cx="${(x+1).toFixed(1)}" cy="${(y+10).toFixed(1)}" r="3.5" fill="var(--hema)"/>`}
-svg.innerHTML=g;
 }
 </script>
+<template id="replay-control">
+ <button class="replay-illustration" type="button">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 1.6 7.4M3 4v6h6"/></svg>
+  <span lang="en">Replay animation</span><span lang="zh-Hant">重播動畫</span>
+ </button>
+</template>
+<script src="homepage.js?v=7"></script>
 </body>
 </html>
