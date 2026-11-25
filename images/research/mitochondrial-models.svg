@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="342" viewBox="0 0 720 342" role="img"><title>Mouse liver and mitochondrial structure</title><desc>A mouse liver is highlighted, with a mitochondrion enlarged to show the outer membrane and folds of the inner membrane.</desc>
+<defs><radialGradient id="plate-field" cx="62%" cy="40%" r="87%"><stop offset="0%" stop-color="#fff1f6"/><stop offset="62%" stop-color="#fbe5ef"/><stop offset="100%" stop-color="#f2d5e3"/></radialGradient><linearGradient id="pearl-surface" x1="0%" y1="0%" x2="83%" y2="100%"><stop offset="0%" stop-color="#e1cdd8"/><stop offset="43%" stop-color="#c0a7ba"/><stop offset="100%" stop-color="#a188a3"/></linearGradient><linearGradient id="rose-surface" x1="0%" y1="0%" x2="83%" y2="100%"><stop offset="0%" stop-color="#f1c1c3"/><stop offset="43%" stop-color="#d293a7"/><stop offset="100%" stop-color="#a47d99"/></linearGradient><linearGradient id="fold-surface" x1="0%" y1="0%" x2="83%" y2="100%"><stop offset="0%" stop-color="#e9d5ea"/><stop offset="43%" stop-color="#d0b1d0"/><stop offset="100%" stop-color="#b491b5"/></linearGradient></defs><rect x="0" y="0" width="720" height="342" rx="0" fill="url(#plate-field)" stroke="none" stroke-width="1"/>
+<path d="M231 217 C281 240 321 231 323 203 C328 173 288 173 306 140 C314 126 329 127 334 117" fill="none" stroke="#b98c9e" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M231 217 C281 240 321 231 323 203 C328 173 288 173 306 140 C314 126 329 127 334 117" fill="none" stroke="#e5c6ca" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M59 194 Q55 189 64 183 L79 172 Q86 151 109 146 C132 116 165 108 201 116 C235 122 263 148 263 178 C266 204 249 219 230 223 L215 233 L224 240 Q216 245 202 238 L199 232 C181 229 167 228 150 223 L131 235 L137 242 Q130 246 119 239 L117 231 Q104 221 104 211 Q88 201 70 199 Z" fill="url(#pearl-surface)" stroke="#92728a" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M99 156 C87 147 91 125 107 126 C122 126 132 143 121 157" fill="#e3c8cf" stroke="#9e7f95" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M101 149 C97 139 102 133 108 135 Q117 137 118 147" fill="#efcbd0" stroke="#ba91a1" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M169 221 C178 221 183 207 198 200 Q214 192 232 199" fill="none" stroke="#bea7b2" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M109 206 Q125 209 136 214" fill="none" stroke="#b8a0af" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="83.00" cy="178.00" r="3.00" fill="#50354e" stroke="none" stroke-width="1"/>
+<circle cx="61.00" cy="191.00" r="2.80" fill="#ae778f" stroke="none" stroke-width="1"/>
+<path d="M74 190 L53 185 M73 193 L49 193 M74 196 L55 202" fill="none" stroke="#896d83" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M117 178 Q120 164 140 162 Q158 160 167 170 Q173 183 159 194 Q147 196 141 182 Q131 194 122 191 Q116 187 117 178Z" fill="#ba6c85" stroke="#a45a77" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="146.00" cy="175.00" r="3.70" fill="#faf6f5" stroke="#f1c5c4" stroke-width="1.4"/>
+<path d="M149 174 L185 144 L311 144 L365 119" fill="none" stroke="#98728d" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 5"/>
+<g transform="rotate(-16 516 174)">
+<path d="M371 170 C374 121 420 95 470 100 C500 104 514 123 545 117 C596 101 642 112 657 148 C676 195 634 233 584 244 C527 257 492 227 445 231 C405 233 367 213 371 170Z" fill="url(#rose-surface)" stroke="#50354e" stroke-width="2.9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M382 170 C384 133 419 109 459 110 Q478 111 486 118 Q487 123 480 129 L460 150 Q450 161 454 166 Q459 172 468 161 L492 135 Q503 124 514 128 Q523 130 517 141 L498 172 Q489 187 496 191 Q503 194 511 179 L533 143 Q541 129 556 128 Q569 123 564 138 L548 169 Q543 180 550 183 Q556 185 561 176 L579 138 Q584 122 597 122 Q608 123 602 135 L590 159 Q585 170 591 173 Q597 177 603 164 L619 133 Q622 128 628 133 Q657 149 647 177 Q640 197 619 209 Q611 215 611 205 L613 186 Q614 176 608 175 Q601 175 600 186 L598 213 Q597 225 582 231 Q570 235 570 226 L578 201 Q581 190 574 189 Q568 187 564 200 L554 228 Q551 238 537 235 Q521 233 525 222 L535 198 Q538 187 531 186 Q524 185 520 197 L512 216 Q508 230 498 226 Q483 223 487 215 L493 202 Q497 193 491 191 Q484 188 480 199 L473 214 Q470 221 458 220 Q413 224 394 204 Q381 191 382 170Z" fill="url(#fold-surface)" stroke="#755473" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="410.00" cy="170.00" r="1.80" fill="#9c7a98" stroke="none" stroke-width="1"/>
+<circle cx="426.00" cy="185.00" r="2.00" fill="#9c7a98" stroke="none" stroke-width="1"/>
+<circle cx="439.00" cy="135.00" r="2.10" fill="#9c7a98" stroke="none" stroke-width="1"/>
+<circle cx="575.00" cy="164.00" r="1.50" fill="#9c7a98" stroke="none" stroke-width="1"/>
+<circle cx="623.00" cy="178.00" r="1.80" fill="#9c7a98" stroke="none" stroke-width="1"/>
+<circle cx="538.00" cy="218.00" r="2.00" fill="#9c7a98" stroke="none" stroke-width="1"/>
+<circle cx="447.00" cy="194.00" r="1.30" fill="#9c7a98" stroke="none" stroke-width="1"/>
+<circle cx="419.00" cy="154.00" r="1.70" fill="#9c7a98" stroke="none" stroke-width="1"/>
+<circle cx="585.00" cy="195.00" r="1.70" fill="#9c7a98" stroke="none" stroke-width="1"/>
+<circle cx="467.00" cy="186.00" r="1.50" fill="#9c7a98" stroke="none" stroke-width="1"/>
+</g>
+</svg>
