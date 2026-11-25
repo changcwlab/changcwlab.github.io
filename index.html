@@ -175,11 +175,10 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
   <figure class="research-film" id="research-film">
    <h1 class="film-sr-only" id="welcome-title"><span lang="en">CWC Lab</span><span lang="zh-Hant">CWC 實驗室</span></h1>
    <div class="film-stage">
-    <video id="intro-film" controls muted playsinline preload="metadata" width="1920" height="1080" poster="cwc-lab-intro-poster.webp?v=7" aria-labelledby="film-name">
-     <source src="cwc-lab-intro.mp4?v=7" type="video/mp4">
+    <video id="intro-film" controls muted playsinline preload="metadata" width="1920" height="1080" poster="cwc-lab-intro-en-poster.webp" aria-labelledby="film-name">
+     <source src="cwc-lab-intro-en.mp4" type="video/mp4">
      <track kind="captions" src="cwc-lab-intro.en.vtt" srclang="en" label="English" default>
-     <track kind="subtitles" src="cwc-lab-intro.zh-Hant.vtt" srclang="zh-Hant" label="繁體中文">
-     <a href="cwc-lab-intro.mp4?v=7"><span lang="en">Open the research film</span><span lang="zh-Hant">開啟研究短片</span></a>
+     <a href="cwc-lab-intro-en.mp4"><span lang="en">Open the research film</span><span lang="zh-Hant">開啟研究短片</span></a>
     </video>
     <button id="film-play" class="film-play" type="button" aria-controls="intro-film" hidden>
      <span aria-hidden="true">▶</span><span class="play-label"></span>
@@ -505,7 +504,7 @@ document.getElementById('publist').innerHTML = pubs.map(publication => {
 }).join('');
 
 const ROLE={p:["Postdoctoral Researcher","博士後研究員"],d:["PhD Student","博士生"],g:["Graduate Student","研究生"],u:["Undergraduate Student","大學部學生"],n:["Intern · NSPESP","實習生・NSPESP"],t:["Intern · TEEP","實習生・TEEP"],i:["Intern · IIPP","實習生・IIPP"]};
-const people=[["Jen-hung Wang","王人弘","p"],["Jie-min Qiu","邱婕閔","g"],["Yun-chen Qiu","邱筠茞","d"],["Wei-ting Liu","劉韋廷","g"],["Rou-jun Chen","陳柔均","g"],["Jia-ying Zhang","張家瑛","g"],["Min-hsuan Chiang","江旻璇","g"],["Le Diep Thanh Trang","","g"],["Shu-han Xu","許舒涵","u"],["Bo-yan Chen","陳博彥","u"],["Annisa Tazkiya Muenchenia Moelyadi","","n"],["Bodapati Reshma","","t"],["Robert Watts","","i"]];
+const people=[["Jen-hung Wang","王人弘","p"],["Jie-min Qiu","邱婕閔","g"],["Yun-chen Qiu","邱筠茞","d"],["Wei-ting Liu","劉韋廷","g"],["Rou-jun Chen","陳柔均","g"],["Min-hsuan Chiang","江旻璇","g"],["Le Diep Thanh Trang","","g"],["Shu-han Xu","許舒涵","u"],["Bo-yan Chen","陳博彥","u"],["Annisa Tazkiya Muenchenia Moelyadi","","n"],["Bodapati Reshma","","t"],["Robert Watts","","i"]];
 const ini=n=>{const w=n.split(' ').filter(Boolean);return (w[0][0]+(w.length>1?w[w.length-1][0]:'')).toUpperCase()};
 document.getElementById('members').innerHTML=people.map(p=>`<div class="mem"><div class="av" aria-hidden="true">${p[1]?p[1].slice(-2):ini(p[0])}</div><b>${p[0]}</b>${p[1]?`<span>${p[1]}</span>`:''}<span lang="en">${ROLE[p[2]][0]}</span><span lang="zh-Hant">${ROLE[p[2]][1]}</span></div>`).join('');
 
@@ -535,6 +534,6 @@ document.querySelectorAll('main section').forEach(s=>io.observe(s));
   <span lang="en">Replay animation</span><span lang="zh-Hant">重播動畫</span>
  </button>
 </template>
-<script src="homepage.js?v=7"></script>
+<script src="homepage.js?v=8"></script>
 </body>
 </html>

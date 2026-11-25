@@ -3,6 +3,17 @@
   const language = () => document.documentElement.dataset.lang === 'zh' ? 'zh' : 'en';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const film = document.getElementById('intro-film');
+  const filmSource = film.querySelector('source');
+  let caption = film.querySelector('track');
+  const filmVersions = {
+    en: {video: filmSource.getAttribute('src'), poster: film.getAttribute('poster'),
+      captions: caption.getAttribute('src'), tag: caption.srclang, label: caption.label},
+    zh: {video: 'cwc-lab-intro.mp4?v=8', poster: 'cwc-lab-intro-poster.webp?v=7',
+      captions: 'cwc-lab-intro.zh-Hant.vtt', tag: 'zh-Hant', label: '繁體中文'}
+  };
+  let filmLanguage = 'en';
+  let initialMetadata = true;
+  let playbackToRestore = null;
   const sound = document.getElementById('film-sound');
   const soundLabel = sound.querySelector('.sound-label');
   const filmNotice = document.getElementById('film-notice');
@@ -43,13 +54,29 @@
     sound.title = soundLabel.textContent;
   }
 
-  function setCaptions() {
-    const target = language() === 'zh' ? 'zh-Hant' : 'en';
-    const selected = Array.from(film.querySelectorAll('track')).find(el => el.srclang === target);
-    if (!selected) return;
-    for (const track of Array.from(film.textTracks)) {
-      track.mode = track === selected.track ? 'showing' : 'disabled';
+  function selectFilmLanguage() {
+    const next = language();
+    if (next === filmLanguage) return;
+    if (!initialMetadata && !playbackToRestore) {
+      playbackToRestore = {time: film.currentTime, playing: !film.paused && !film.ended};
     }
+    filmLanguage = next;
+    const version = filmVersions[next];
+    // Mount a single caption track so iOS cannot substitute the device language.
+    caption.track.mode = 'disabled';
+    const nextCaption = document.createElement('track');
+    nextCaption.kind = 'captions';
+    nextCaption.label = version.label;
+    nextCaption.srclang = version.tag;
+    nextCaption.src = version.captions;
+    nextCaption.default = true;
+    caption.replaceWith(nextCaption);
+    caption = nextCaption;
+    film.poster = version.poster;
+    filmSource.src = version.video;
+    film.querySelector('a').href = version.video;
+    film.load();
+    caption.track.mode = 'showing';
   }
 
   function hasPlayed() {
@@ -121,13 +148,19 @@
   film.addEventListener('pause', updateSoundLabel);
   film.addEventListener('ended', updateSoundLabel);
   function prepareFilm() {
-    setCaptions();
-    if (requestedChapter) {
+    caption.track.mode = 'showing';
+    if (playbackToRestore) {
+      const {time, playing} = playbackToRestore;
+      playbackToRestore = null;
+      film.currentTime = Math.min(time, film.duration);
+      if (playing) playOnRequest();
+    } else if (initialMetadata && requestedChapter) {
       film.currentTime = reducedMotion.matches && requestedChapter === synthesisChapter
         ? 53 : Number(requestedChapter.dataset.start);
       showActiveChapter();
       playOnArrival();
     }
+    initialMetadata = false;
   }
   film.addEventListener('timeupdate', showActiveChapter);
   film.addEventListener('seeked', () => { showActiveChapter(); updateSoundLabel(); });
@@ -146,8 +179,9 @@
   }, {threshold: [0, .3]});
   filmObserver.observe(film);
   document.addEventListener('visibilitychange', playOnArrival);
+  selectFilmLanguage();
+  film.addEventListener('loadedmetadata', prepareFilm);
   if (film.readyState >= 1) prepareFilm();
-  else film.addEventListener('loadedmetadata', prepareFilm, {once: true});
   document.getElementById('research-film').dataset.filmReady = 'true';
 
   const section = document.getElementById('research');
@@ -336,7 +370,7 @@
 
   function translate() {
     updateSoundLabel();
-    setCaptions();
+    selectFilmLanguage();
     updateRotationLabel();
     const isZh = language() === 'zh';
     chapterList.setAttribute('aria-label', isZh ? chapterList.dataset.labelZh : chapterList.dataset.labelEn);
