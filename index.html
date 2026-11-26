@@ -144,7 +144,7 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 }
 @media(prefers-reduced-motion:no-preference){.mk{stroke-dasharray:4 4;animation:march 6s linear infinite}@keyframes march{to{stroke-dashoffset:-48}}}
 </style>
-<link rel="stylesheet" href="homepage.css?v=7">
+<link rel="stylesheet" href="homepage.css?v=9">
 </head>
 <body>
 <div class="wrap">
@@ -172,8 +172,11 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 <main>
 <section class="band welcome" id="home" aria-labelledby="welcome-title">
  <div class="in">
+  <h1 class="lab-position" id="welcome-title">
+   <span lang="en">We combine computational genomics and AI pathology to understand why some people with fatty liver disease progress to cirrhosis or liver cancer.</span>
+   <span lang="zh-Hant">我們結合計算基因體學與 AI 病理，探討為什麼有些脂肪肝患者會進展至肝硬化或肝癌。</span>
+  </h1>
   <figure class="research-film" id="research-film">
-   <h1 class="film-sr-only" id="welcome-title"><span lang="en">CWC Lab</span><span lang="zh-Hant">CWC 實驗室</span></h1>
    <div class="film-stage">
     <video id="intro-film" controls muted playsinline preload="metadata" width="1920" height="1080" poster="cwc-lab-intro-en-poster.webp" aria-labelledby="film-name">
      <source src="cwc-lab-intro-en.mp4" type="video/mp4">
@@ -243,8 +246,8 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
   <div class="program-panels" aria-live="off">
    <article class="program-panel" id="panel-regulatory" role="tabpanel" aria-labelledby="tab-regulatory" tabindex="0">
     <div class="program-copy">
-     <h3><span lang="en">Which genetic differences influence the course of liver disease?</span><span lang="zh-Hant">哪些遺傳差異會影響肝病的進程？</span></h3>
-     <p><span lang="en">EPFinder is a collaboration between CWC Lab and Dr. Yi-Hsiang Hsu at Harvard Medical School. We compare genetic data across populations to ask which genes liver disease risk variants may regulate.</span><span lang="zh-Hant">EPFinder 是 CWC Lab 與哈佛醫學院許益祥教授的合作計畫。我們利用不同族群的遺傳資料，探討與肝病風險相關的變異可能調控哪些基因。</span></p>
+     <h3><span lang="en">Which genes do liver disease risk variants affect?</span><span lang="zh-Hant">與肝病風險相關的變異，可能影響哪些基因？</span></h3>
+     <p><span lang="en">With EPFinder, we combine genetic associations across populations with three-dimensional maps of the genome to identify candidate genes that liver disease risk variants may regulate. We conduct this work with Dr. Yi-Hsiang Hsu at Harvard Medical School.</span><span lang="zh-Hant">在 EPFinder 計畫中，我們整合不同族群的遺傳關聯資料與三維基因體圖譜，找出肝病風險變異可能調控的候選基因。這項研究由 CWC 實驗室與哈佛醫學院許益祥教授合作進行。</span></p>
     </div>
     <figure class="program-plate">
      <div class="illustration-field"><div class="illustration-camera">
@@ -393,9 +396,9 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
    <div>
     <h3 style="font-size:26px">Ching-Wen Chang, PhD <span style="color:var(--soft);font-weight:500">張瀞文</span></h3>
     <p class="role"><span lang="en">Assistant Professor, Graduate Institute of Metabolism and Obesity Sciences, College of Nutrition, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學營養學院代謝與肥胖科學研究所 助理教授</span></p>
-    <p><span lang="en">Ching-Wen Chang, PhD, leads CWC Lab. Her team studies why some people with fatty liver disease develop cirrhosis or liver cancer while others with similar metabolic risk remain stable. The lab uses human genetics, blood metabolite profiles and AI analysis of liver biopsies to identify changes linked to disease progression, then tests their role in experimental models.</span><span lang="zh-Hant">張瀞文博士主持 CWC 實驗室。她的研究從一個臨床問題出發。代謝風險相近的脂肪肝患者，為什麼有些人病情穩定，有些人卻進展至肝硬化或肝癌？她帶領團隊結合人類遺傳、血中代謝物與肝切片的 AI 分析，找出與疾病進展相關的變化，再以實驗模型檢驗這些變化在致病過程中的作用。</span></p>
-    <p><span lang="en">As principal investigator on a grant from Taiwan’s National Science and Technology Council, Dr. Chang uses three-dimensional maps of the genome to identify the genes that liver disease risk variants may regulate. As co-first author of a 2025 study in <i>Hepatology</i>, she helped identify a genetic variant associated with liver cancer in people with steatohepatitis. The study also showed that mice lacking the mitochondrial protein DNAJA3 in their liver cells developed steatohepatitis and liver cancer.</span><span lang="zh-Hant">她目前主持國科會計畫，利用基因體三維結構圖譜，追查與肝病進展相關的遺傳變異可能調控哪些基因。在 2025 年以共同第一作者身分發表於《Hepatology》的研究中，她與合作者在脂肪性肝炎患者中辨認出一個與肝癌風險相關的遺傳變異，並發現小鼠的肝細胞缺少粒線體蛋白 DNAJA3 時，會出現脂肪性肝炎及肝癌。</span></p>
-    <p><span lang="en">She earned her PhD at National Yang-Ming University and, as a Dragon Gate fellow, conducted postdoctoral research with Dr. Xin Wei Wang at the U.S. National Cancer Institute’s Center for Cancer Research.</span><span lang="zh-Hant">張博士於國立陽明大學取得博士學位，後獲Dragon Gate 計畫獎助，赴美國國家癌症研究所癌症研究中心，在 Xin Wei Wang 博士的實驗室從事博士後研究。</span></p>
+    <p><span lang="en">Dr. Chang leads CWC Lab, where her team uses computational genomics to study liver disease and cancer. In a project funded by the National Science and Technology Council in Taiwan, she uses three-dimensional genome maps to identify liver genes that inherited variants may regulate. Her lab also develops AI methods to measure tissue changes in liver biopsies and studies how blood metabolites change as liver disease progresses.</span><span lang="zh-Hant">張瀞文博士主持 CWC 實驗室，以計算基因體學研究肝病與癌症。在她主持的國科會計畫中，團隊運用三維基因體圖譜，追查遺傳變異可能調控哪些肝臟基因。她也帶領團隊開發 AI 方法，量化肝切片上的組織變化，並追蹤血中代謝物如何隨肝病進展而改變。</span></p>
+    <p><span lang="en">As co-first author of a <i>Hepatology</i> study, Dr. Chang and her colleagues linked a human genetic variant to liver cancer in patients with steatohepatitis and showed that loss of DNAJA3 in mouse liver cells leads to steatohepatitis and liver cancer. In a first-author <i>iScience</i> study, she analyzed 18,177 tumors across 28 cancer types to identify recurring alterations in genes encoding mitochondrial ribosomal proteins.</span><span lang="zh-Hant">她以共同第一作者身分在 <i>Hepatology</i> 發表研究，與合作者發現一個遺傳變異與脂肪性肝炎患者的肝癌風險相關，並以小鼠模型顯示，肝細胞缺失 DNAJA3 會導致脂肪性肝炎與肝癌。她也以第一作者在 <i>iScience</i> 發表泛癌分析，從 28 種癌別、18,177 個腫瘤中，找出粒線體核糖體蛋白基因反覆出現的變化。</span></p>
+    <p><span lang="en">Dr. Chang earned her PhD at National Yang-Ming University. With a Dragon Gate fellowship, she began her postdoctoral research in liver cancer genomics with Dr. Xin Wei Wang at the Center for Cancer Research, U.S. National Cancer Institute.</span><span lang="zh-Hant">張博士於國立陽明大學取得博士學位，後獲 Dragon Gate 計畫獎助，赴美國國家癌症研究所癌症研究中心，在 Xin Wei Wang 博士的實驗室從事肝癌基因體學博士後研究。</span></p>
     <details class="pi-affiliations"><summary><span lang="en">Research affiliations</span><span lang="zh-Hant">研究單位</span></summary><ul><li><span lang="en">TMU Research Center for Digestive Medicine, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學消化醫學研究中心</span></li><li><span lang="en">Taipei Cancer Center, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學臺北癌症中心</span></li><li><span lang="en">Nutrition Research Center, Taipei Medical University Hospital</span><span lang="zh-Hant">臺北醫學大學附設醫院營養研究中心</span></li></ul></details>
     <ul>
      <li><span lang="en">Best Poster Award, APASL Annual Meeting 2023</span><span lang="zh-Hant">2023 APASL 年會 最佳海報獎</span></li>
@@ -482,16 +485,16 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 <script>
 {
 const pubs=[
+ ["<b>Chang CW</b>, Chen YS, Huang CH, et al., Lo JF*, Wang XW*.", "A genetic basis of mitochondrial DNAJA3 in nonalcoholic steatohepatitis-related hepatocellular carcinoma.", "Hepatology", "2025;81(1):60–76", "https://pubmed.ncbi.nlm.nih.gov/37870291/"],
+ ["<b>Chang CW</b>, Wei Z, Durell SR, Ma L, Forgues M, Wang XW*.", "A compendium of co-regulated mitoribosomal proteins in pan-cancer uncovers collateral defective events in tumor malignancy.", "iScience", "2022;25(10):105244", "https://pubmed.ncbi.nlm.nih.gov/36274950/"],
  ["Guerrero JJG, del Rosario MAS, Encarnacion PC, et al., <b>Chang CW</b>*, Li WC*.", "Adipose tissue browning in MASLD and its molecular mechanisms and metabolic crosstalk.", "Current Obesity Reports", "2026;15(1):68", "https://pubmed.ncbi.nlm.nih.gov/42538483/"],
  ["Guerrero JJG, Encarnacion PC, Wang WY, Liao SF, <b>Chang CW</b>*.", "Burden and health system challenges in MASLD across East and Southeast Asia: a narrative review.", "Health Science Reports", "2026;9(4):e72304", "https://pubmed.ncbi.nlm.nih.gov/42005636/"],
  ["Guerrero JJG, Encarnacion PC, Wang CH, et al., <b>Chang CW</b>*, Li WC*.", "Fueling or fighting cancer? The thermogenic paradox of brown adipose tissue.", "Current Obesity Reports", "2026;15(1):23", "https://pubmed.ncbi.nlm.nih.gov/41848823/"],
- ["<b>Chang CW</b>, Chen YS, Huang CH, et al., Lo JF*, Wang XW*.", "A genetic basis of mitochondrial DNAJA3 in nonalcoholic steatohepatitis-related hepatocellular carcinoma.", "Hepatology", "2025;81(1):60–76", "https://pubmed.ncbi.nlm.nih.gov/37870291/"],
  ["Guerrero JJG, Encarnacion PC, del Rosario MAS, et al., Li WC*, <b>Chang CW</b>*.", "Genetic variants underlying precancerous conditions of hepatocellular carcinoma.", "International Journal of Cancer", "2026;158(3):488–502", "https://pubmed.ncbi.nlm.nih.gov/40833357/"],
  ["Lu CH, <b>Chang CW</b>, Chen SC, et al., Wu CH*.", "Machine learning-based survival analysis for patients receiving lenvatinib for unresectable hepatocellular carcinoma.", "Journal of Hepatocellular Carcinoma", "2025;12:2625–2637", "https://pubmed.ncbi.nlm.nih.gov/41323515/"],
  ["Behrens S, Do WL, Wang L, et al., <b>Chang CW</b>, et al., Wang XW*.", "Pan-microbial serological repertoire as a biomarker of immunotherapy response in hepatocellular carcinoma.", "Journal for ImmunoTherapy of Cancer", "2025;13(10):e011742", "https://pubmed.ncbi.nlm.nih.gov/41120127/"],
  ["Hung MH, <b>Chang CW</b>, Wang KC, et al., Wang XW*.", "Purine anabolism creates therapeutic vulnerability in hepatocellular carcinoma through m⁶A-mediated epitranscriptomic regulation.", "Hepatology", "2023;78(5):1462–1477", "https://pubmed.ncbi.nlm.nih.gov/37094826/"],
  ["Feng D, Xiang X, Guan Y, et al., <b>Chang C</b>, et al., Gao B*.", "Monocyte-derived macrophages orchestrate multiple cell-type interactions to repair necrotic liver lesions in disease models.", "Journal of Clinical Investigation", "2023;133(15):e166954", "https://pubmed.ncbi.nlm.nih.gov/37338984/"],
- ["<b>Chang CW</b>, Wei Z, Durell SR, Ma L, Forgues M, Wang XW*.", "A compendium of co-regulated mitoribosomal proteins in pan-cancer uncovers collateral defective events in tumor malignancy.", "iScience", "2022;25(10):105244", "https://pubmed.ncbi.nlm.nih.gov/36274950/"],
  ["Liu N, <b>Chang CW</b>, Steer CJ, Wang XW, Song G*.", "MicroRNA-15a/16-1 prevents hepatocellular carcinoma by disrupting the communication between Kupffer cells and regulatory T cells.", "Gastroenterology", "2022;162(2):575–589", "https://pubmed.ncbi.nlm.nih.gov/34678217/"],
  ["Ma L, Wang L, Khatib SA, <b>Chang CW</b>, et al., Greten TF*, Wang XW*.", "Single-cell atlas of tumor cell evolution in response to therapy in hepatocellular carcinoma and intrahepatic cholangiocarcinoma.", "Journal of Hepatology", "2021;75(6):1397–1408", "https://pubmed.ncbi.nlm.nih.gov/34216724/"],
  ["Hung MH, Lee JS, Ma C, et al., <b>Chang CW</b>, et al., Wang XW*.", "Tumor methionine metabolism drives T-cell exhaustion in hepatocellular carcinoma.", "Nature Communications", "2021;12(1):1455", "https://pubmed.ncbi.nlm.nih.gov/33674593/"],
