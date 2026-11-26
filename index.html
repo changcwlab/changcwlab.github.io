@@ -144,7 +144,7 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 }
 @media(prefers-reduced-motion:no-preference){.mk{stroke-dasharray:4 4;animation:march 6s linear infinite}@keyframes march{to{stroke-dashoffset:-48}}}
 </style>
-<link rel="stylesheet" href="homepage.css?v=10">
+<link rel="stylesheet" href="homepage.css?v=11">
 </head>
 <body>
 <div class="wrap">
@@ -189,6 +189,7 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
      <track kind="captions" src="cwc-lab-intro.en.vtt" srclang="en" label="English" default>
      <a href="cwc-lab-intro-en.mp4"><span lang="en">Open the research film</span><span lang="zh-Hant">開啟研究短片</span></a>
     </video>
+    <img id="film-cover" class="film-cover" src="cwc-lab-intro-en-poster.webp" width="1920" height="1080" alt="" hidden>
     <button id="film-play" class="film-play" type="button" aria-controls="intro-film" hidden>
      <span aria-hidden="true">▶</span><span class="play-label"></span>
     </button>
@@ -214,7 +215,11 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
    </div>
      </details>
     </div>
-    <span id="film-notice" role="status" hidden></span>
+    <div id="film-help">
+     <span id="film-notice" role="status" hidden><span lang="en">The film couldn’t play here. Try again or open it directly.</span><span lang="zh-Hant">影片未能播放。請再試一次，或直接開啟影片。</span></span>
+     <a lang="en" href="cwc-lab-intro-en.mp4">Open the English film directly</a>
+     <a lang="zh-Hant" href="cwc-lab-intro.mp4?v=8">直接開啟中文版影片</a>
+    </div>
    </figcaption>
   </figure>
  </div>
@@ -543,6 +548,6 @@ document.querySelectorAll('main section').forEach(s=>io.observe(s));
   <span lang="en">Replay animation</span><span lang="zh-Hant">重播動畫</span>
  </button>
 </template>
-<script src="homepage.js?v=8"></script>
+<script src="homepage.js?v=9"></script>
 </body>
 </html>

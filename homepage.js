@@ -3,6 +3,7 @@
   const language = () => document.documentElement.dataset.lang === 'zh' ? 'zh' : 'en';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const film = document.getElementById('intro-film');
+  const cover = document.getElementById('film-cover');
   const filmSource = film.querySelector('source');
   let caption = film.querySelector('track');
   const filmVersions = {
@@ -30,6 +31,14 @@
   let playedHere = false;
   let heardSound = false;
   let triedAutoplay = false;
+  let frameRequest = null;
+  let frameWatch = null;
+  let lastFrameAt = 0;
+  let lastMediaTime = 0;
+  let lastFrameCount = 0;
+  let filmVisible = false;
+  let needsReload = false;
+  cover.hidden = false;
 
   const soundLabels = {
     first: {en: 'Play with sound', zh: '從頭有聲播放'},
@@ -43,15 +52,65 @@
     const audible = !film.muted && film.volume > 0;
     let action = heardSound ? 'sound' : 'first';
     if (film.ended) action = 'replay';
-    else if (audible) action = film.paused ? 'resume' : 'mute';
+    else if (audible && cover.hidden) action = film.paused ? 'resume' : 'mute';
     if (keepChapter && action === 'first') action = 'sound';
     soundLabel.textContent = soundLabels[action][language()];
-    playButton.hidden = !film.paused || film.ended;
+    playButton.hidden = cover.hidden && (!film.paused || film.ended);
     const resume = film.currentTime > .5;
     playLabel.textContent = language() === 'zh'
       ? (resume ? '繼續播放' : '播放影片')
       : (resume ? 'Resume film' : 'Play film');
     sound.title = soundLabel.textContent;
+  }
+
+  function stopFrameWatch() {
+    clearInterval(frameWatch);
+    frameWatch = null;
+    if (frameRequest !== null) film.cancelVideoFrameCallback(frameRequest);
+    frameRequest = null;
+  }
+
+  function playbackFailed() {
+    stopFrameWatch();
+    needsReload = true;
+    film.pause();
+    cover.hidden = false;
+    filmNotice.hidden = false;
+    updateSoundLabel();
+  }
+
+  function confirmFrame() {
+    lastFrameAt = performance.now();
+    if (cover.hidden) return;
+    cover.hidden = true;
+    filmNotice.hidden = true;
+    if (!playedHere) rememberPlaying();
+    trackSound();
+  }
+
+  function presentedFrameCount() {
+    const quality = film.getVideoPlaybackQuality?.();
+    return quality ? quality.totalVideoFrames - quality.droppedVideoFrames : film.webkitDecodedFrameCount;
+  }
+
+  function startFrameWatch() {
+    if (frameWatch !== null || film.paused || film.ended) return;
+    lastFrameAt = performance.now();
+    lastMediaTime = film.currentTime;
+    lastFrameCount = presentedFrameCount();
+    // A successful play() can precede the first frame sent to the compositor.
+    if (typeof film.requestVideoFrameCallback === 'function') {
+      const presented = () => {
+        if (film.paused || film.ended) return;
+        confirmFrame();
+        frameRequest = film.requestVideoFrameCallback(presented);
+      };
+      frameRequest = film.requestVideoFrameCallback(presented);
+    }
+    frameWatch = setInterval(() => {
+      if (document.hidden || !filmVisible) lastFrameAt = performance.now();
+      else if (performance.now() - lastFrameAt >= 6000) playbackFailed();
+    }, 1000);
   }
 
   function selectFilmLanguage() {
@@ -62,6 +121,11 @@
     }
     filmLanguage = next;
     const version = filmVersions[next];
+    stopFrameWatch();
+    needsReload = false;
+    filmNotice.hidden = true;
+    cover.src = version.poster;
+    cover.hidden = false;
     // Mount a single caption track so iOS cannot substitute the device language.
     caption.track.mode = 'disabled';
     const nextCaption = document.createElement('track');
@@ -77,6 +141,7 @@
     film.querySelector('a').href = version.video;
     film.load();
     caption.track.mode = 'showing';
+    updateSoundLabel();
   }
 
   function hasPlayed() {
@@ -92,7 +157,7 @@
   }
 
   function trackSound() {
-    if (!film.paused && !film.muted && film.volume > 0) heardSound = true;
+    if (cover.hidden && !film.paused && !film.muted && film.volume > 0) heardSound = true;
     updateSoundLabel();
   }
 
@@ -110,16 +175,19 @@
   function playOnRequest() {
     triedAutoplay = true;
     filmNotice.hidden = true;
+    if (needsReload || film.error) {
+      playbackToRestore = {time: film.currentTime, playing: false};
+      needsReload = false;
+      film.load();
+    }
     film.play().catch(error => {
       if (error.name === 'AbortError') return;
-      filmNotice.textContent = language() === 'zh' ? '請點影片內的播放鍵繼續。' : 'Use the play button on the film to continue.';
-      filmNotice.hidden = false;
-      updateSoundLabel();
+      playbackFailed();
     });
   }
 
   sound.addEventListener('click', () => {
-    if (!film.ended && !film.paused && !film.muted && film.volume > 0) {
+    if (cover.hidden && !film.ended && !film.paused && !film.muted && film.volume > 0) {
       film.muted = true;
     } else {
       if ((!keepChapter && !heardSound) || film.ended) film.currentTime = 0;
@@ -142,11 +210,25 @@
     });
   }
 
-  film.addEventListener('playing', rememberPlaying, {once: true});
-  film.addEventListener('playing', () => { filmNotice.hidden = true; trackSound(); });
+  film.addEventListener('play', startFrameWatch);
+  film.addEventListener('playing', startFrameWatch);
+  film.addEventListener('error', playbackFailed);
+  filmSource.addEventListener('error', playbackFailed);
+  film.addEventListener('timeupdate', () => {
+    if (typeof film.requestVideoFrameCallback === 'function' || film.paused || film.seeking) return;
+    const count = presentedFrameCount();
+    if (film.readyState >= 2 && film.videoWidth && film.currentTime > lastMediaTime &&
+        (count == null || count > lastFrameCount)) confirmFrame();
+    lastFrameCount = count;
+    lastMediaTime = film.currentTime;
+  });
   film.addEventListener('volumechange', trackSound);
-  film.addEventListener('pause', updateSoundLabel);
-  film.addEventListener('ended', updateSoundLabel);
+  for (const event of ['pause', 'ended']) {
+    film.addEventListener(event, () => {
+      if (film.paused || film.ended) stopFrameWatch();
+      updateSoundLabel();
+    });
+  }
   function prepareFilm() {
     caption.track.mode = 'showing';
     if (playbackToRestore) {
@@ -165,7 +247,6 @@
   film.addEventListener('timeupdate', showActiveChapter);
   film.addEventListener('seeked', () => { showActiveChapter(); updateSoundLabel(); });
 
-  let filmVisible = false;
   function playOnArrival() {
     if (!filmVisible || document.hidden || triedAutoplay || reducedMotion.matches) return;
     if (requestedChapter ? film.readyState === 0 : hasPlayed()) return;
@@ -175,10 +256,14 @@
   }
   const filmObserver = new IntersectionObserver(entries => {
     filmVisible = entries[entries.length - 1].intersectionRatio >= .3;
+    lastFrameAt = performance.now();
     playOnArrival();
   }, {threshold: [0, .3]});
   filmObserver.observe(film);
-  document.addEventListener('visibilitychange', playOnArrival);
+  document.addEventListener('visibilitychange', () => {
+    lastFrameAt = performance.now();
+    playOnArrival();
+  });
   selectFilmLanguage();
   film.addEventListener('loadedmetadata', prepareFilm);
   if (film.readyState >= 1) prepareFilm();
