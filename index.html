@@ -144,7 +144,7 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 }
 @media(prefers-reduced-motion:no-preference){.mk{stroke-dasharray:4 4;animation:march 6s linear infinite}@keyframes march{to{stroke-dashoffset:-48}}}
 </style>
-<link rel="stylesheet" href="homepage.css?v=9">
+<link rel="stylesheet" href="homepage.css?v=10">
 </head>
 <body>
 <div class="wrap">
@@ -172,10 +172,16 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
 <main>
 <section class="band welcome" id="home" aria-labelledby="welcome-title">
  <div class="in">
-  <h1 class="lab-position" id="welcome-title">
-   <span lang="en">We combine computational genomics and AI pathology to understand why some people with fatty liver disease progress to cirrhosis or liver cancer.</span>
-   <span lang="zh-Hant">我們結合計算基因體學與 AI 病理，探討為什麼有些脂肪肝患者會進展至肝硬化或肝癌。</span>
-  </h1>
+  <header class="welcome-copy">
+   <h1 class="lab-position" id="welcome-title">
+    <span lang="en">Genomics and AI <em>in liver disease</em></span>
+    <span lang="zh-Hant">以基因體學與 AI <em>解讀肝病</em></span>
+   </h1>
+   <p class="welcome-summary">
+    <span lang="en">We combine human genetics, metabolomics and AI pathology to study why fatty liver disease progresses to cirrhosis or liver cancer in some people.</span>
+    <span lang="zh-Hant">我們結合人類遺傳學、代謝體學與 AI 病理，探討為何有些人的脂肪肝會進展為肝硬化或肝癌。</span>
+   </p>
+  </header>
   <figure class="research-film" id="research-film">
    <div class="film-stage">
     <video id="intro-film" controls muted playsinline preload="metadata" width="1920" height="1080" poster="cwc-lab-intro-en-poster.webp" aria-labelledby="film-name">
@@ -397,7 +403,7 @@ footer{padding:28px max(5vw,20px);font-size:13px;color:var(--soft)}
     <h3 style="font-size:26px">Ching-Wen Chang, PhD <span style="color:var(--soft);font-weight:500">張瀞文</span></h3>
     <p class="role"><span lang="en">Assistant Professor, Graduate Institute of Metabolism and Obesity Sciences, College of Nutrition, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學營養學院代謝與肥胖科學研究所 助理教授</span></p>
     <p><span lang="en">Dr. Chang leads CWC Lab, where her team uses computational genomics to study liver disease and cancer. In a project funded by the National Science and Technology Council in Taiwan, she uses three-dimensional genome maps to identify liver genes that inherited variants may regulate. Her lab also develops AI methods to measure tissue changes in liver biopsies and studies how blood metabolites change as liver disease progresses.</span><span lang="zh-Hant">張瀞文博士主持 CWC 實驗室，以計算基因體學研究肝病與癌症。在她主持的國科會計畫中，團隊運用三維基因體圖譜，追查遺傳變異可能調控哪些肝臟基因。她也帶領團隊開發 AI 方法，量化肝切片上的組織變化，並追蹤血中代謝物如何隨肝病進展而改變。</span></p>
-    <p><span lang="en">As co-first author of a <i>Hepatology</i> study, Dr. Chang and her colleagues linked a human genetic variant to liver cancer in patients with steatohepatitis and showed that loss of DNAJA3 in mouse liver cells leads to steatohepatitis and liver cancer. In a first-author <i>iScience</i> study, she analyzed 18,177 tumors across 28 cancer types to identify recurring alterations in genes encoding mitochondrial ribosomal proteins.</span><span lang="zh-Hant">她以共同第一作者身分在 <i>Hepatology</i> 發表研究，與合作者發現一個遺傳變異與脂肪性肝炎患者的肝癌風險相關，並以小鼠模型顯示，肝細胞缺失 DNAJA3 會導致脂肪性肝炎與肝癌。她也以第一作者在 <i>iScience</i> 發表泛癌分析，從 28 種癌別、18,177 個腫瘤中，找出粒線體核糖體蛋白基因反覆出現的變化。</span></p>
+    <p><span lang="en">Dr. Chang was a first author of a <i>Hepatology</i> study in which she and her colleagues linked a human genetic variant to liver cancer in patients with steatohepatitis and showed that loss of DNAJA3 in mouse liver cells leads to steatohepatitis and liver cancer. In a first-author <i>iScience</i> study, she analyzed 18,177 tumors across 28 cancer types to identify recurring alterations in genes encoding mitochondrial ribosomal proteins.</span><span lang="zh-Hant">她以第一作者身分在 <i>Hepatology</i> 發表研究，與合作者發現一個遺傳變異與脂肪性肝炎患者的肝癌風險相關，並以小鼠模型顯示，肝細胞缺失 DNAJA3 會導致脂肪性肝炎與肝癌。她也以第一作者在 <i>iScience</i> 發表泛癌分析，從 28 種癌別、18,177 個腫瘤中，找出粒線體核糖體蛋白基因反覆出現的變化。</span></p>
     <p><span lang="en">Dr. Chang earned her PhD at National Yang-Ming University. With a Dragon Gate fellowship, she began her postdoctoral research in liver cancer genomics with Dr. Xin Wei Wang at the Center for Cancer Research, U.S. National Cancer Institute.</span><span lang="zh-Hant">張博士於國立陽明大學取得博士學位，後獲 Dragon Gate 計畫獎助，赴美國國家癌症研究所癌症研究中心，在 Xin Wei Wang 博士的實驗室從事肝癌基因體學博士後研究。</span></p>
     <details class="pi-affiliations"><summary><span lang="en">Research affiliations</span><span lang="zh-Hant">研究單位</span></summary><ul><li><span lang="en">TMU Research Center for Digestive Medicine, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學消化醫學研究中心</span></li><li><span lang="en">Taipei Cancer Center, Taipei Medical University</span><span lang="zh-Hant">臺北醫學大學臺北癌症中心</span></li><li><span lang="en">Nutrition Research Center, Taipei Medical University Hospital</span><span lang="zh-Hant">臺北醫學大學附設醫院營養研究中心</span></li></ul></details>
     <ul>

@@ -1,28 +1,53 @@
 .welcome {
   padding: 0;
   border: 0;
-  color: #482440;
-  background: #fbe5ee;
+  color: #3e2537;
+  background: #fdf1f5;
+  container: welcome / inline-size;
 }
-.welcome > .in { max-width: 1560px; }
+.welcome > .in {
+  max-width: 1440px;
+  padding: clamp(30px, 5%, 72px) clamp(18px, 4.2%, 64px);
+  display: grid;
+  gap: clamp(22px, 4cqw, 55px);
+  align-items: center;
+}
 .welcome .lab-position {
-  max-width: 56ch;
   margin: 0;
-  padding: clamp(18px, 2.4vw, 34px) clamp(16px, 4vw, 60px) 12px;
-  color: #482440;
-  font-size: clamp(20px, 2.2vw, 32px);
-  font-weight: 500;
-  line-height: 1.3;
+  color: #3e2537;
+  font-family: Baskerville, "Iowan Old Style", "Palatino Linotype", Georgia, "Noto Serif CJK TC", serif;
+  font-size: clamp(36px, 5.1cqw, 74px);
+  font-weight: 400;
+  line-height: 1.07;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.lab-position em { display: block; color: #864668; font-weight: 400; }
+.lab-position [lang="zh-Hant"] { letter-spacing: .015em; line-height: 1.22; }
+.lab-position [lang="zh-Hant"] em { font-style: normal; }
+.welcome-summary {
+  margin: clamp(14px, 1.8cqw, 24px) 0 0;
+  max-width: 46ch;
+  color: #644957;
+  font-size: clamp(16px, 1.3cqw, 19px);
+  line-height: 1.6;
 }
 .welcome .research-film { margin: 0; max-width: none; }
-.film-stage { position: relative; background: #fbe5ee; }
+@container welcome (min-width: 800px) {
+  .welcome > .in { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+}
+@container welcome (max-width: 799px) {
+  .welcome .lab-position { font-size: clamp(36px, 7.6cqw, 56px); }
+  .welcome-summary { max-width: 58ch; }
+}
+.film-stage { position: relative; background: #fbe5ee; border-radius: 8px; box-shadow: 0 0 0 1px #ddc2cd; }
 .welcome .research-film video {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   background: #fbe5ee;
-  border-radius: 0;
+  border-radius: 8px;
   box-shadow: none;
 }
 .film-sr-only {
@@ -38,7 +63,7 @@
 .welcome .research-film figcaption {
   margin: 0;
   border: 0;
-  padding: 0 clamp(16px, 4vw, 60px);
+  padding: 0;
   font: 500 14px/1.4 "Schibsted Grotesk", "Noto Sans TC", sans-serif;
   color: #634456;
 }
